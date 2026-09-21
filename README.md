@@ -48,11 +48,11 @@ If an invalid input was silently accepted and a numerical result was returned, i
 
 ---
 
-# 2. Two Main Fuzzing Algorithms
+# 2. Fuzzing Algorithm
 
 Two general approaches were used to select and test inputs.
 
-## Algorithm A: Finding Real Literals
+## Finding Real Literals
 
 The library's own test files were searched for real numeric literals.
 
@@ -67,7 +67,7 @@ The following process was used:
 
 This approach was used because a literal value can be mutated without having to guess what a dynamically generated value should contain.
 
-## Algorithm B: Mutate, Execute, and Grade
+## Mutation
 
 After a suitable value had been identified:
 
@@ -102,8 +102,8 @@ When more than one rule was being checked for the same input, the resulting chec
 |---|---:|---:|---:|
 | LTNtorch | 11 / 11 | 418 | 115 |
 | LNN | 117 / 117 | 40 | 12 |
-| DeepProbLog, deep pipeline | 65 / 76* | 116 | 24 |
-| DeepProbLog, literal scan | 65 / 76* | 56 | 24 |
+| DeepProbLog, deep pipeline | 65 / 76 | 116 | 24 |
+| DeepProbLog, literal scan | 65 / 76 | 56 | 24 |
 
 \* 11 DeepProbLog tests were skipped.
 
