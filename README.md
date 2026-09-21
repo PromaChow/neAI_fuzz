@@ -63,7 +63,6 @@ The following process was used:
 3. Imported names were resolved to their actual library definitions.
 4. The real constructor or function signature was checked.
 5. Only calls containing explicit literal values were kept.
-6. Calls containing tensors, variables, models, or other dynamically generated values were excluded.
 
 This approach was used because a literal value can be mutated without having to guess what a dynamically generated value should contain.
 
