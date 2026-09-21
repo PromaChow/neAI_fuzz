@@ -12,7 +12,7 @@ The experiments were performed using the real installed libraries. No replacemen
 
 ---
 
-## 1. Common Methodology
+## 1. Methodology
 
 The same basic principles were followed for all three libraries.
 
