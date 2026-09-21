@@ -16,13 +16,13 @@ The experiments were performed using the real installed libraries. No replacemen
 
 The same basic principles were followed for all three libraries.
 
-### Rule 1: Tests Run
+### Step 1: Tests Run
 
 Fuzzing was performed only after the library's existing tests had been run.
 
 This was done to make sure that failures found during fuzzing were not simply caused by an already broken installation or test environment.
 
-### Rule 2: Documentation
+### Step 2: Documentation
 
 Only rules that could be connected to one of the following were tested:
 
@@ -32,13 +32,13 @@ Only rules that could be connected to one of the following were tested:
 
 For example, if a parameter was documented as needing to be between 0 and 1, values outside that range were treated as DOC-INVALID.
 
-### Rule 3: Library Methods invoked by tests are run
+### Step 3: Library Methods invoked by tests are run
 
 Every fuzz case was sent through the actual installed library.
 
 The behavior was therefore measured from the real implementation rather than from a reimplementation of the expected behavior.
 
-### Rule 4: Inputs were classified as DOC-VALID or DOC-INVALID
+### Step 4: Inputs were classified as DOC-VALID or DOC-INVALID
 
 A **DOC-VALID** input satisfies the documented requirement and should be accepted.
 
