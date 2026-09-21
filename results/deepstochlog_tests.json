@@ -1,0 +1,157 @@
+{
+  "library": "deepstochlog",
+  "import_name": "deepstochlog",
+  "notes": "confirmed: tests/test_*.py, standard naming, six files (test_citeseer, test_parser, test_anbncn, test_examples, test_tabled_tree_builder, test_bracket)",
+  "documented_command": null,
+  "repo_url": "https://github.com/ML-KULeuven/deepstochlog.git",
+  "runner": "pytest",
+  "test_root": "/Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/tests",
+  "test_source": "site_packages",
+  "locate_diagnostics": {
+    "import_ok": true,
+    "package_dir": "/Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/deepstochlog",
+    "tried": [
+      "/Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/tests"
+    ]
+  },
+  "command": "/Users/promachowdhury/opt/anaconda3/envs/nesy/bin/python -m pytest /Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/tests -q --no-header -p no:cacheprovider -o python_files=*.py --continue-on-collection-errors --junitxml=/var/folders/ym/q5m4l2l139lb0l3_v1tnr_k00000gn/T/tmpkn61rau8/report.xml",
+  "seconds": 2.13,
+  "returncode": 1,
+  "stdout_tail": [
+    "    return fn(self, *args, **kwargs)",
+    "",
+    "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+    "=========================== short test summary info ============================",
+    "ERROR _src_checkouts/deepstochlog/tests/test_anbncn.py",
+    "ERROR _src_checkouts/deepstochlog/tests/test_bracket.py",
+    "ERROR _src_checkouts/deepstochlog/tests/test_citeseer.py",
+    "ERROR _src_checkouts/deepstochlog/tests/test_examples.py",
+    "ERROR _src_checkouts/deepstochlog/tests/test_tabled_tree_builder.py",
+    "9 passed, 40 warnings, 5 errors in 1.68s"
+  ],
+  "stderr_tail": [],
+  "warnings": [
+    "=============================== warnings summary ===============================",
+    "  /Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/deepstochlog/parser.py:40: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'",
+    "  /Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/deepstochlog/parser.py:42: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'",
+    "  /Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/deepstochlog/parser.py:44: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'",
+    "  /Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/deepstochlog/parser.py:51: PyparsingDeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'",
+    "  /Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/deepstochlog/parser.py:55: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'",
+    "  /Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/deepstochlog/parser.py:57: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'",
+    "  /Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/deepstochlog/parser.py:59: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'",
+    "  /Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/deepstochlog/parser.py:61: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'",
+    "  /Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/deepstochlog/parser.py:66: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'"
+  ],
+  "exit_meaning": "tests_failed",
+  "junit": {
+    "counts": {
+      "tests": 14,
+      "failures": 0,
+      "errors": 5,
+      "skipped": 0,
+      "passed": 9
+    },
+    "failing_tests": [
+      {
+        "test": "tests.test_anbncn",
+        "kind": "error",
+        "message": "collection failure"
+      },
+      {
+        "test": "tests.test_bracket",
+        "kind": "error",
+        "message": "collection failure"
+      },
+      {
+        "test": "tests.test_citeseer",
+        "kind": "error",
+        "message": "collection failure"
+      },
+      {
+        "test": "tests.test_examples",
+        "kind": "error",
+        "message": "collection failure"
+      },
+      {
+        "test": "tests.test_tabled_tree_builder",
+        "kind": "error",
+        "message": "collection failure"
+      }
+    ],
+    "n_failing_recorded": 5,
+    "passing_tests": [
+      {
+        "test": "tests.test_parser.ParserTestCase::test_all_types_probability",
+        "file": ""
+      },
+      {
+        "test": "tests.test_parser.ParserTestCase::test_all_types_rules",
+        "file": ""
+      },
+      {
+        "test": "tests.test_parser.ParserTestCase::test_anbncn",
+        "file": ""
+      },
+      {
+        "test": "tests.test_parser.ParserTestCase::test_body_period_exceptions_parsing",
+        "file": ""
+      },
+      {
+        "test": "tests.test_parser.ParserTestCase::test_fact",
+        "file": ""
+      },
+      {
+        "test": "tests.test_parser.ParserTestCase::test_forgotten_period_exception_raised",
+        "file": ""
+      },
+      {
+        "test": "tests.test_parser.ParserTestCase::test_static_probability",
+        "file": ""
+      },
+      {
+        "test": "tests.test_parser.ParserTestCase::test_term_arguments",
+        "file": ""
+      },
+      {
+        "test": "tests.test_parser.ParserTestCase::test_trainable_probability",
+        "file": ""
+      }
+    ]
+  },
+  "status": "tests_failed",
+  "environment": {
+    "timestamp": "2026-09-21T00:14:04+0600",
+    "python_version": "3.12.2 | packaged by conda-forge | (main, Feb 16 2024, 20:54:21) [Clang 16.0.6 ]",
+    "python_executable": "/Users/promachowdhury/opt/anaconda3/envs/nesy/bin/python",
+    "platform": "macOS-14.2.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "arm",
+    "packages": {
+      "deepproblog": "unknown",
+      "ltn": "unknown",
+      "scallopy": "unknown",
+      "neurasp": null,
+      "deepstochlog": "unknown",
+      "deepsoftlog": null,
+      "pylon": null,
+      "SLASH": null,
+      "spl": null,
+      "pslpython": null,
+      "problog": "unknown",
+      "pysdd": "1.0.0",
+      "clingo": "5.8.2",
+      "torch": "2.14.0",
+      "torchvision": "0.29.0",
+      "pytest": "9.1.1",
+      "numpy": "2.5.3",
+      "pyswip": null
+    },
+    "cuda": {
+      "available": false,
+      "version": null,
+      "device_count": 0
+    },
+    "PYTHONHASHSEED": null,
+    "OMP_NUM_THREADS": null
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "library": "ltn",
+  "import_name": "ltn",
+  "notes": "pip package ships no tests/ at all; repo has tests/tests.py (single file, NON-standard filename \u2014 needs python_files override to collect). Confirmed by direct inspection.",
+  "documented_command": null,
+  "repo_url": "https://github.com/logictensornetworks/LTNtorch.git",
+  "runner": "pytest",
+  "test_root": "/tmp/ltn/tests",
+  "test_source": "site_packages",
+  "locate_diagnostics": {
+    "import_ok": true,
+    "package_dir": "/tmp/ltn/ltn",
+    "tried": [
+      "/tmp/ltn/tests"
+    ]
+  },
+  "command": "/usr/bin/python -m pytest /tmp/ltn/tests -q --no-header -p no:cacheprovider -o python_files=*.py --continue-on-collection-errors --junitxml=/tmp/tmpxd4sirdn/report.xml",
+  "seconds": 2.96,
+  "returncode": 0,
+  "stdout_tail": [
+    "../ltn/ltn/fuzzy_ops.py:1406",
+    "  /tmp/ltn/ltn/fuzzy_ops.py:1406: DeprecationWarning: invalid escape sequence '\\g'",
+    "    \"\"\"",
+    "",
+    "../ltn/ltn/fuzzy_ops.py:1518",
+    "  /tmp/ltn/ltn/fuzzy_ops.py:1518: DeprecationWarning: invalid escape sequence '\\o'",
+    "    \"\"\"",
+    "",
+    "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+    "11 passed, 17 warnings in 2.38s"
+  ],
+  "stderr_tail": [],
+  "warnings": [
+    "=============================== warnings summary ===============================",
+    "  /tmp/ltn/ltn/core.py:363: DeprecationWarning: invalid escape sequence '\\d'",
+    "  /tmp/ltn/ltn/fuzzy_ops.py:189: DeprecationWarning: invalid escape sequence '\\l'",
+    "  /tmp/ltn/ltn/fuzzy_ops.py:233: DeprecationWarning: invalid escape sequence '\\l'",
+    "  /tmp/ltn/ltn/fuzzy_ops.py:279: DeprecationWarning: invalid escape sequence '\\l'",
+    "  /tmp/ltn/ltn/fuzzy_ops.py:336: DeprecationWarning: invalid escape sequence '\\l'",
+    "  /tmp/ltn/ltn/fuzzy_ops.py:424: DeprecationWarning: invalid escape sequence '\\l'",
+    "  /tmp/ltn/ltn/fuzzy_ops.py:484: DeprecationWarning: invalid escape sequence '\\l'",
+    "  /tmp/ltn/ltn/fuzzy_ops.py:541: DeprecationWarning: invalid escape sequence '\\l'",
+    "  /tmp/ltn/ltn/fuzzy_ops.py:629: DeprecationWarning: invalid escape sequence '\\l'"
+  ],
+  "exit_meaning": "all_passed",
+  "junit": {
+    "counts": {
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 11
+    },
+    "failing_tests": [],
+    "n_failing_recorded": 0,
+    "passing_tests": [
+      {
+        "test": "tests.tests::test_LTNObject",
+        "file": ""
+      },
+      {
+        "test": "tests.tests::test_Constant",
+        "file": ""
+      },
+      {
+        "test": "tests.tests::test_Variable",
+        "file": ""
+      },
+      {
+        "test": "tests.tests::test_process_ltn_objects",
+        "file": ""
+      },
+      {
+        "test": "tests.tests::test_Predicate",
+        "file": ""
+      },
+      {
+        "test": "tests.tests::test_Function",
+        "file": ""
+      },
+      {
+        "test": "tests.tests::test_LambdaModel",
+        "file": ""
+      },
+      {
+        "test": "tests.tests::test_diag",
+        "file": ""
+      },
+      {
+        "test": "tests.tests::test_undiag",
+        "file": ""
+      },
+      {
+        "test": "tests.tests::test_Connective",
+        "file": ""
+      },
+      {
+        "test": "tests.tests::test_Quantifier",
+        "file": ""
+      }
+    ]
+  },
+  "status": "ok",
+  "environment": {
+    "timestamp": "2026-09-21T00:33:07+0600",
+    "python_version": "3.11.15 (main, Mar  3 2026, 09:26:23) [GCC 13.3.0]",
+    "python_executable": "/usr/bin/python",
+    "platform": "Linux-6.18.44-fc-v37-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "packages": {
+      "deepproblog": null,
+      "ltn": "unknown",
+      "scallopy": null,
+      "neurasp": null,
+      "deepstochlog": "unknown",
+      "deepsoftlog": null,
+      "pylon": null,
+      "SLASH": null,
+      "spl": null,
+      "pslpython": null,
+      "problog": null,
+      "pysdd": null,
+      "clingo": null,
+      "torch": "2.14.0+cu130",
+      "torchvision": "0.29.0+cu130",
+      "pytest": "9.1.1",
+      "numpy": "2.4.4",
+      "pyswip": null
+    },
+    "cuda": {
+      "available": false,
+      "version": "13.0",
+      "device_count": 0
+    },
+    "PYTHONHASHSEED": null,
+    "OMP_NUM_THREADS": null
+  }
+}

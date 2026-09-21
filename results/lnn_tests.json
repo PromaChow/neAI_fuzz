@@ -1,0 +1,14 @@
+{
+ "status": "ok",
+ "library": "lnn",
+ "junit": {
+  "counts": {
+   "passed": 117,
+   "failed": 0,
+   "errors": 0,
+   "skipped": 0,
+   "total": 117
+  }
+ },
+ "test_root": "tests"
+}

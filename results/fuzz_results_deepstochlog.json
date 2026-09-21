@@ -1,0 +1,485 @@
+{
+ "library": "deepstochlog",
+ "generated": "2026-09-20 21:08:54",
+ "seconds": 0.55,
+ "gate": {
+  "gate": "passed",
+  "baseline_passed": 9,
+  "baseline_status": "tests_failed"
+ },
+ "n_cases": 13,
+ "n_violations": 8,
+ "scope_note": "O1 (range) and O4-equivalent (normalisation, where applicable) only. O2/O5/O6/O7 NOT ported -- see module docstring.",
+ "corpus": [
+  {
+   "id": "DSL-R-01",
+   "surface": "belief",
+   "tier": "realistic",
+   "label": "uniform_init",
+   "value": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+   ],
+   "validity": "DOC-VALID",
+   "origin": "softmax over near-zero logits, the network at initialisation",
+   "ref": "LPAD04",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "DSL-R-02",
+   "surface": "belief",
+   "tier": "realistic",
+   "label": "converged_confident",
+   "value": [
+    0.98,
+    0.01,
+    0.01
+   ],
+   "validity": "DOC-VALID",
+   "origin": "a trained classifier on an easy example",
+   "ref": "LPAD04",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "DSL-R-03",
+   "surface": "belief",
+   "tier": "realistic",
+   "label": "saturated_softmax",
+   "value": [
+    0.9999999,
+    5e-08,
+    5e-08
+   ],
+   "validity": "DOC-VALID",
+   "origin": "late training: softmax saturates near float32 epsilon",
+   "ref": "IEEE754",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "DSL-R-04",
+   "surface": "belief",
+   "tier": "realistic",
+   "label": "hard_zero_class",
+   "value": [
+    0.6,
+    0.4,
+    0.0
+   ],
+   "validity": "DOC-VALID",
+   "origin": "a masked or pruned class reaching the belief vector as exact 0.0",
+   "ref": "DPL18",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "DSL-R-05",
+   "surface": "belief",
+   "tier": "realistic",
+   "label": "hard_one_class",
+   "value": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "validity": "DOC-VALID",
+   "origin": "argmax hardening / one-hot teacher forcing",
+   "ref": "DPL18",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "DSL-A-01",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "raw_logits",
+   "value": [
+    3.2,
+    -1.1,
+    0.4
+   ],
+   "validity": "DOC-INVALID",
+   "origin": "the softmax was never applied before the belief vector reaches the neural predicate -- CONFIRMED LIVE: accepted, P=3.2",
+   "ref": "DPL18",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "DSL-A-02",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "sigmoid_multilabel",
+   "value": [
+    0.9,
+    0.9,
+    0.9
+   ],
+   "validity": "DOC-INVALID",
+   "origin": "a sigmoid head reused where softmax over the domain is required",
+   "ref": "LPAD04",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "DSL-A-03",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "sum_below_one",
+   "value": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "validity": "DOC-INVALID",
+   "origin": "dropout or masking left active at inference time -- CONFIRMED LIVE: accepted, P=0.1 with no normalisation check",
+   "ref": "LPAD04",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "DSL-A-04",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "negative_entry",
+   "value": [
+    -0.5,
+    0.75,
+    0.75
+   ],
+   "validity": "DOC-INVALID",
+   "origin": "sums to 1 but contains negative mass -- CONFIRMED LIVE: accepted, P=-0.5, no non-negativity check",
+   "ref": "Kolmogorov33",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "DSL-A-05",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "entry_above_one",
+   "value": [
+    1.5,
+    -0.25,
+    -0.25
+   ],
+   "validity": "DOC-INVALID",
+   "origin": "same failure mode, excess mass on the other side",
+   "ref": "Kolmogorov33",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "DSL-A-06",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "nan_entry",
+   "value": [
+    NaN,
+    0.5,
+    0.5
+   ],
+   "validity": "DOC-INVALID",
+   "origin": "0/0 inside a softmax, or a diverged training run -- CONFIRMED LIVE: NaN propagates through calculate_probability unchecked",
+   "ref": "IEEE754",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "DSL-A-07",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "positive_infinity",
+   "value": [
+    Infinity,
+    0.0,
+    0.0
+   ],
+   "validity": "DOC-INVALID",
+   "origin": "exp() overflow without the max-subtraction trick",
+   "ref": "IEEE754",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "DSL-A-08",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "negative_infinity",
+   "value": [
+    -Infinity,
+    1.0,
+    0.0
+   ],
+   "validity": "DOC-INVALID",
+   "origin": "log(0) in a log-probability pipeline",
+   "ref": "IEEE754",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "note": ""
+  }
+ ],
+ "results": [
+  {
+   "id": "DSL-R-01",
+   "surface": "belief",
+   "tier": "realistic",
+   "label": "uniform_init",
+   "validity": "DOC-VALID",
+   "ref": "LPAD04",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": 0.3333333432674408,
+   "O1_range": true,
+   "outcome": "accepted",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "id": "DSL-R-02",
+   "surface": "belief",
+   "tier": "realistic",
+   "label": "converged_confident",
+   "validity": "DOC-VALID",
+   "ref": "LPAD04",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": 0.9800000190734863,
+   "O1_range": true,
+   "outcome": "accepted",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "id": "DSL-R-03",
+   "surface": "belief",
+   "tier": "realistic",
+   "label": "saturated_softmax",
+   "validity": "DOC-VALID",
+   "ref": "IEEE754",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": 0.9999998807907104,
+   "O1_range": true,
+   "outcome": "accepted",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "id": "DSL-R-04",
+   "surface": "belief",
+   "tier": "realistic",
+   "label": "hard_zero_class",
+   "validity": "DOC-VALID",
+   "ref": "DPL18",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": 0.6000000238418579,
+   "O1_range": true,
+   "outcome": "accepted",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "id": "DSL-R-05",
+   "surface": "belief",
+   "tier": "realistic",
+   "label": "hard_one_class",
+   "validity": "DOC-VALID",
+   "ref": "DPL18",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": 1.0,
+   "O1_range": true,
+   "outcome": "accepted",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "id": "DSL-A-01",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "raw_logits",
+   "validity": "DOC-INVALID",
+   "ref": "DPL18",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": 3.200000047683716,
+   "O1_range": false,
+   "outcome": "accepted",
+   "verdict": "SILENTLY ACCEPTED",
+   "ok": false
+  },
+  {
+   "id": "DSL-A-02",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "sigmoid_multilabel",
+   "validity": "DOC-INVALID",
+   "ref": "LPAD04",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": 0.8999999761581421,
+   "O1_range": true,
+   "outcome": "accepted",
+   "verdict": "SILENTLY ACCEPTED",
+   "ok": false
+  },
+  {
+   "id": "DSL-A-03",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "sum_below_one",
+   "validity": "DOC-INVALID",
+   "ref": "LPAD04",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": 0.10000000149011612,
+   "O1_range": true,
+   "outcome": "accepted",
+   "verdict": "SILENTLY ACCEPTED",
+   "ok": false
+  },
+  {
+   "id": "DSL-A-04",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "negative_entry",
+   "validity": "DOC-INVALID",
+   "ref": "Kolmogorov33",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": -0.5,
+   "O1_range": false,
+   "outcome": "accepted",
+   "verdict": "SILENTLY ACCEPTED",
+   "ok": false
+  },
+  {
+   "id": "DSL-A-05",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "entry_above_one",
+   "validity": "DOC-INVALID",
+   "ref": "Kolmogorov33",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": 1.5,
+   "O1_range": false,
+   "outcome": "accepted",
+   "verdict": "SILENTLY ACCEPTED",
+   "ok": false
+  },
+  {
+   "id": "DSL-A-06",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "nan_entry",
+   "validity": "DOC-INVALID",
+   "ref": "IEEE754",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": NaN,
+   "O1_range": false,
+   "outcome": "accepted",
+   "verdict": "SILENTLY ACCEPTED",
+   "ok": false
+  },
+  {
+   "id": "DSL-A-07",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "positive_infinity",
+   "validity": "DOC-INVALID",
+   "ref": "IEEE754",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": Infinity,
+   "O1_range": false,
+   "outcome": "accepted",
+   "verdict": "SILENTLY ACCEPTED",
+   "ok": false
+  },
+  {
+   "id": "DSL-A-08",
+   "surface": "belief",
+   "tier": "adversarial",
+   "label": "negative_infinity",
+   "validity": "DOC-INVALID",
+   "ref": "IEEE754",
+   "oracles": [
+    "O1",
+    "O4"
+   ],
+   "F": -Infinity,
+   "O1_range": false,
+   "outcome": "accepted",
+   "verdict": "SILENTLY ACCEPTED",
+   "ok": false
+  }
+ ]
+}

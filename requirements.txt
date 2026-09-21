@@ -1,0 +1,8 @@
+# Verified working combination (18 Sep 2026, Python 3.11, CPU only)
+deepproblog==2.1.0
+problog==2.3.0
+torch>=2.0
+pytest>=7.0
+# Optional: unskips the 11 ApproximateEngine tests. Also needs SWI-Prolog
+# installed at system level (apt install swi-prolog / brew install swi-prolog).
+# pyswip>=0.3.3

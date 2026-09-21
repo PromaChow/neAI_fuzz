@@ -1,0 +1,1305 @@
+{
+ "library": "deepstochlog",
+ "mode": "focal_method_mutation_v2_general",
+ "generated": "2026-09-21 00:54:56",
+ "seconds": 0.02,
+ "gate": {
+  "gate": "passed",
+  "baseline_passed": 9,
+  "test_root": "/Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/tests",
+  "passing_tests": [
+   {
+    "test": "tests.test_parser.ParserTestCase::test_all_types_probability",
+    "file": ""
+   },
+   {
+    "test": "tests.test_parser.ParserTestCase::test_all_types_rules",
+    "file": ""
+   },
+   {
+    "test": "tests.test_parser.ParserTestCase::test_anbncn",
+    "file": ""
+   },
+   {
+    "test": "tests.test_parser.ParserTestCase::test_body_period_exceptions_parsing",
+    "file": ""
+   },
+   {
+    "test": "tests.test_parser.ParserTestCase::test_fact",
+    "file": ""
+   },
+   {
+    "test": "tests.test_parser.ParserTestCase::test_forgotten_period_exception_raised",
+    "file": ""
+   },
+   {
+    "test": "tests.test_parser.ParserTestCase::test_static_probability",
+    "file": ""
+   },
+   {
+    "test": "tests.test_parser.ParserTestCase::test_term_arguments",
+    "file": ""
+   },
+   {
+    "test": "tests.test_parser.ParserTestCase::test_trainable_probability",
+    "file": ""
+   }
+  ]
+ },
+ "mode_a_calls": [
+  {
+   "mode": "A",
+   "test": "test_static_probability",
+   "file": "/Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/tests/test_parser.py",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "program": "0.2 :: foo --> a."
+  },
+  {
+   "mode": "A",
+   "test": "test_body_period_exceptions_parsing",
+   "file": "/Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/tests/test_parser.py",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "program": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a."
+  },
+  {
+   "mode": "A",
+   "test": "test_all_types_probability",
+   "file": "/Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/tests/test_parser.py",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "program": "0.2 :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X)."
+  },
+  {
+   "mode": "A",
+   "test": "test_all_types_rules",
+   "file": "/Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/tests/test_parser.py",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "program": "\n        a.\n        b :- c.\n        1.0 :: e --> f.\n        "
+  },
+  {
+   "mode": "A",
+   "test": "test_term_arguments",
+   "file": "/Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/tests/test_parser.py",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "program": "\n        1.0 :: rep(s(N), C) --> [X].\n        "
+  },
+  {
+   "mode": "A",
+   "test": "test_anbncn",
+   "file": "/Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/deepstochlog/tests/test_parser.py",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "program": "\n        0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+  }
+ ],
+ "mode_b_calls": [],
+ "scope_note": "Mode A mutates the probability literal in a real DSL program string and calls the real parser. Mode B mutates literal int/float/bool arguments of ANY resolvable focal call and calls that real function directly. Validity for Mode B is a presumed non-negativity heuristic (stated, not a proven contract) \u2014 bool/sign-ambiguous args get no oracle and are reported, not scored.",
+ "n_cases": 80,
+ "n_violations": 9,
+ "results": [
+  {
+   "mode": "A",
+   "op": "seed",
+   "value": 0.2,
+   "from_test": "test_static_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a."
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.2 :: foo --> a.",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "negate",
+   "value": -0.2,
+   "from_test": "test_static_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "-0.2 :: foo --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected {{[Group:({{Combine:({['0'] '.' W:(0-9)}) | Combine:({'1' ['.' {'0'}...]})} | W:(A-Z) | Combine:('t(_)') | {Suppress:('nn(') W:(0-9A-Z_a-z) S",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "scale_5x",
+   "value": 1.0,
+   "from_test": "test_static_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "1.0 :: foo --> a."
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "1.0 :: foo --> a.",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "add_one",
+   "value": 1.2,
+   "from_test": "test_static_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "1.2 :: foo --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '2'  (at char 2), (line:1, col:3)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "zero",
+   "value": 0.0,
+   "from_test": "test_static_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.0 :: foo --> a."
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.0 :: foo --> a.",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "above_one_eps",
+   "value": 1.000001,
+   "from_test": "test_static_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "1.000001 :: foo --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '000001'  (at char 2), (line:1, col:3)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "nan",
+   "value": NaN,
+   "from_test": "test_static_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "nan :: foo --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected '-->', found ':'  (at char 4), (line:1, col:5)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "pos_inf",
+   "value": Infinity,
+   "from_test": "test_static_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "inf :: foo --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected '-->', found ':'  (at char 4), (line:1, col:5)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "from_test": "test_static_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "-inf :: foo --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected {{[Group:({{Combine:({['0'] '.' W:(0-9)}) | Combine:({'1' ['.' {'0'}...]})} | W:(A-Z) | Combine:('t(_)') | {Suppress:('nn(') W:(0-9A-Z_a-z) S",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "double_dot",
+   "value": "0..2",
+   "from_test": "test_static_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0..2 :: foo --> a."
+   },
+   "validity": "DOC-INVALID",
+   "result_repr": "0.\n0.2 :: foo --> a.",
+   "verdict": "MISPARSED (silently split into a different program, not rejected)",
+   "ok": false
+  },
+  {
+   "mode": "A",
+   "op": "seed",
+   "value": 0.2,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a."
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a.",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "negate",
+   "value": -0.2,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "-0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected {{[Group:({{Combine:({['0'] '.' W:(0-9)}) | Combine:({'1' ['.' {'0'}...]})} | W:(A-Z) | Combine:('t(_)') | {Suppress:('nn(') W:(0-9A-Z_a-z) S",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "scale_5x",
+   "value": 1.0,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "1.0 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a."
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "1.0 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a.",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "add_one",
+   "value": 1.2,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "1.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '2'  (at char 2), (line:1, col:3)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "zero",
+   "value": 0.0,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.0 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a."
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.0 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a.",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "above_one_eps",
+   "value": 1.000001,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "1.000001 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '000001'  (at char 2), (line:1, col:3)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "nan",
+   "value": NaN,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "nan :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected '-->', found ':'  (at char 4), (line:1, col:5)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "pos_inf",
+   "value": Infinity,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "inf :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected '-->', found ':'  (at char 4), (line:1, col:5)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "-inf :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected {{[Group:({{Combine:({['0'] '.' W:(0-9)}) | Combine:({'1' ['.' {'0'}...]})} | W:(A-Z) | Combine:('t(_)') | {Suppress:('nn(') W:(0-9A-Z_a-z) S",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "double_dot",
+   "value": "0..2",
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0..2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "result_repr": "0.\n0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a.",
+   "verdict": "MISPARSED (silently split into a different program, not rejected)",
+   "ok": false
+  },
+  {
+   "mode": "A",
+   "op": "seed",
+   "value": 0.1,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a."
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.1 :: bar --> a.",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "negate",
+   "value": -0.1,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n-0.1 :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '-'  (at char 50), (line:2, col:1)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "scale_5x",
+   "value": 0.5,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.5 :: bar --> a."
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.5 :: bar --> a.",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "add_one",
+   "value": 1.1,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n1.1 :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "result_repr": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n1.\n1.0 :: bar --> a.",
+   "verdict": "SILENTLY ACCEPTED (no validation observed)",
+   "ok": false
+  },
+  {
+   "mode": "A",
+   "op": "zero",
+   "value": 0.0,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.0 :: bar --> a."
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.0 :: bar --> a.",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "above_one_eps",
+   "value": 1.000001,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n1.000001 :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '000001'  (at char 52), (line:2, col:3)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "nan",
+   "value": NaN,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\nnan :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found 'nan'  (at char 50), (line:2, col:1)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "pos_inf",
+   "value": Infinity,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\ninf :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found 'inf'  (at char 50), (line:2, col:1)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n-inf :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '-'  (at char 50), (line:2, col:1)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "double_dot",
+   "value": "0..1",
+   "from_test": "test_body_period_exceptions_parsing",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0..1 :: bar --> a."
+   },
+   "validity": "DOC-INVALID",
+   "result_repr": "0.2 :: foo --> a(0.4), 0.3, [\"hello.\"], {b(X,Y)}.\n0.\n0.1 :: bar --> a.",
+   "verdict": "SILENTLY ACCEPTED (no validation observed)",
+   "ok": false
+  },
+  {
+   "mode": "A",
+   "op": "seed",
+   "value": 0.2,
+   "from_test": "test_all_types_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.2 :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X)."
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.2 :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X).",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "negate",
+   "value": -0.2,
+   "from_test": "test_all_types_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "-0.2 :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X)."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected {{[Group:({{Combine:({['0'] '.' W:(0-9)}) | Combine:({'1' ['.' {'0'}...]})} | W:(A-Z) | Combine:('t(_)') | {Suppress:('nn(') W:(0-9A-Z_a-z) S",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "scale_5x",
+   "value": 1.0,
+   "from_test": "test_all_types_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "1.0 :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X)."
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "1.0 :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X).",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "add_one",
+   "value": 1.2,
+   "from_test": "test_all_types_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "1.2 :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X)."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '2'  (at char 2), (line:1, col:3)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "zero",
+   "value": 0.0,
+   "from_test": "test_all_types_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0.0 :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X)."
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.0 :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X).",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "above_one_eps",
+   "value": 1.000001,
+   "from_test": "test_all_types_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "1.000001 :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X)."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '000001'  (at char 2), (line:1, col:3)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "nan",
+   "value": NaN,
+   "from_test": "test_all_types_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "nan :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X)."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected '-->', found ':'  (at char 4), (line:1, col:5)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "pos_inf",
+   "value": Infinity,
+   "from_test": "test_all_types_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "inf :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X)."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected '-->', found ':'  (at char 4), (line:1, col:5)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "from_test": "test_all_types_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "-inf :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X)."
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected {{[Group:({{Combine:({['0'] '.' W:(0-9)}) | Combine:({'1' ['.' {'0'}...]})} | W:(A-Z) | Combine:('t(_)') | {Suppress:('nn(') W:(0-9A-Z_a-z) S",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "double_dot",
+   "value": "0..2",
+   "from_test": "test_all_types_probability",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "0..2 :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X)."
+   },
+   "validity": "DOC-INVALID",
+   "result_repr": "0.\n0.2 :: foo --> a.\nnn(mnist, [X], Y, digit) :: bla(A,B) --> bla, h.\nt(_) :: bar(X) --> a(0,1), c(_,X).",
+   "verdict": "MISPARSED (silently split into a different program, not rejected)",
+   "ok": false
+  },
+  {
+   "mode": "A",
+   "op": "seed",
+   "value": 1.0,
+   "from_test": "test_all_types_rules",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        a.\n        b :- c.\n        1.0 :: e --> f.\n        "
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "a.\nb :- c.\n1.0 :: e --> f.",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "negate",
+   "value": -1.0,
+   "from_test": "test_all_types_rules",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        a.\n        b :- c.\n        -1.0 :: e --> f.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '-'  (at char 36), (line:4, col:9)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "scale_5x",
+   "value": 5.0,
+   "from_test": "test_all_types_rules",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        a.\n        b :- c.\n        5.0 :: e --> f.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '0'  (at char 38), (line:4, col:11)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "add_one",
+   "value": 2.0,
+   "from_test": "test_all_types_rules",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        a.\n        b :- c.\n        2.0 :: e --> f.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '0'  (at char 38), (line:4, col:11)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "zero",
+   "value": 0.0,
+   "from_test": "test_all_types_rules",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        a.\n        b :- c.\n        0.0 :: e --> f.\n        "
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "a.\nb :- c.\n0.0 :: e --> f.",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "above_one_eps",
+   "value": 1.000001,
+   "from_test": "test_all_types_rules",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        a.\n        b :- c.\n        1.000001 :: e --> f.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '000001'  (at char 38), (line:4, col:11)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "nan",
+   "value": NaN,
+   "from_test": "test_all_types_rules",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        a.\n        b :- c.\n        nan :: e --> f.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found 'nan'  (at char 36), (line:4, col:9)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "pos_inf",
+   "value": Infinity,
+   "from_test": "test_all_types_rules",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        a.\n        b :- c.\n        inf :: e --> f.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found 'inf'  (at char 36), (line:4, col:9)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "from_test": "test_all_types_rules",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        a.\n        b :- c.\n        -inf :: e --> f.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '-'  (at char 36), (line:4, col:9)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "double_dot",
+   "value": "1..0",
+   "from_test": "test_all_types_rules",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        a.\n        b :- c.\n        1..0 :: e --> f.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "result_repr": "a.\nb :- c.\n1.\n0.0 :: e --> f.",
+   "verdict": "MISPARSED (silently split into a different program, not rejected)",
+   "ok": false
+  },
+  {
+   "mode": "A",
+   "op": "seed",
+   "value": 1.0,
+   "from_test": "test_term_arguments",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        1.0 :: rep(s(N), C) --> [X].\n        "
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "1.0 :: rep(s(N),C) --> [X].",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "negate",
+   "value": -1.0,
+   "from_test": "test_term_arguments",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        -1.0 :: rep(s(N), C) --> [X].\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected {{[Group:({{Combine:({['0'] '.' W:(0-9)}) | Combine:({'1' ['.' {'0'}...]})} | W:(A-Z) | Combine:('t(_)') | {Suppress:('nn(') W:(0-9A-Z_a-z) S",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "scale_5x",
+   "value": 5.0,
+   "from_test": "test_term_arguments",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        5.0 :: rep(s(N), C) --> [X].\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '0'  (at char 11), (line:2, col:11)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "add_one",
+   "value": 2.0,
+   "from_test": "test_term_arguments",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        2.0 :: rep(s(N), C) --> [X].\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '0'  (at char 11), (line:2, col:11)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "zero",
+   "value": 0.0,
+   "from_test": "test_term_arguments",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.0 :: rep(s(N), C) --> [X].\n        "
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.0 :: rep(s(N),C) --> [X].",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "above_one_eps",
+   "value": 1.000001,
+   "from_test": "test_term_arguments",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        1.000001 :: rep(s(N), C) --> [X].\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '000001'  (at char 11), (line:2, col:11)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "nan",
+   "value": NaN,
+   "from_test": "test_term_arguments",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        nan :: rep(s(N), C) --> [X].\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected '-->', found ':'  (at char 13), (line:2, col:13)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "pos_inf",
+   "value": Infinity,
+   "from_test": "test_term_arguments",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        inf :: rep(s(N), C) --> [X].\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected '-->', found ':'  (at char 13), (line:2, col:13)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "from_test": "test_term_arguments",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        -inf :: rep(s(N), C) --> [X].\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected {{[Group:({{Combine:({['0'] '.' W:(0-9)}) | Combine:({'1' ['.' {'0'}...]})} | W:(A-Z) | Combine:('t(_)') | {Suppress:('nn(') W:(0-9A-Z_a-z) S",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "double_dot",
+   "value": "1..0",
+   "from_test": "test_term_arguments",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        1..0 :: rep(s(N), C) --> [X].\n        "
+   },
+   "validity": "DOC-INVALID",
+   "result_repr": "1.\n0.0 :: rep(s(N),C) --> [X].",
+   "verdict": "MISPARSED (silently split into a different program, not rejected)",
+   "ok": false
+  },
+  {
+   "mode": "A",
+   "op": "seed",
+   "value": 0.5,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n0.5 :: s(1) --> akblcm(N,N,N).\n1 :: akblcm(K,L,M) --> rep(K,A), rep(L,B), ",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "negate",
+   "value": -0.5,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        -0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected {{[Group:({{Combine:({['0'] '.' W:(0-9)}) | Combine:({'1' ['.' {'0'}...]})} | W:(A-Z) | Combine:('t(_)') | {Suppress:('nn(') W:(0-9A-Z_a-z) S",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "scale_5x",
+   "value": 2.5,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        2.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '5'  (at char 11), (line:2, col:11)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "add_one",
+   "value": 1.5,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        1.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '5'  (at char 11), (line:2, col:11)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "zero",
+   "value": 0.0,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.0 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.0 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n0.5 :: s(1) --> akblcm(N,N,N).\n1 :: akblcm(K,L,M) --> rep(K,A), rep(L,B), ",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "above_one_eps",
+   "value": 1.000001,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        1.000001 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '000001'  (at char 11), (line:2, col:11)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "nan",
+   "value": NaN,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        nan :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected '-->', found ':'  (at char 13), (line:2, col:13)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "pos_inf",
+   "value": Infinity,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        inf :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected '-->', found ':'  (at char 13), (line:2, col:13)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        -inf :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected {{[Group:({{Combine:({['0'] '.' W:(0-9)}) | Combine:({'1' ['.' {'0'}...]})} | W:(A-Z) | Combine:('t(_)') | {Suppress:('nn(') W:(0-9A-Z_a-z) S",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "double_dot",
+   "value": "0..5",
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0..5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "result_repr": "0.\n0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n0.5 :: s(1) --> akblcm(N,N,N).\n1 :: akblcm(K,L,M) --> rep(K,A), rep(L,B",
+   "verdict": "MISPARSED (silently split into a different program, not rejected)",
+   "ok": false
+  },
+  {
+   "mode": "A",
+   "op": "seed",
+   "value": 0.5,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n0.5 :: s(1) --> akblcm(N,N,N).\n1 :: akblcm(K,L,M) --> rep(K,A), rep(L,B), ",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "negate",
+   "value": -0.5,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        -0.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '-'  (at char 93), (line:3, col:9)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "scale_5x",
+   "value": 2.5,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        2.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '5'  (at char 95), (line:3, col:11)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "add_one",
+   "value": 1.5,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        1.5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '5'  (at char 95), (line:3, col:11)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "zero",
+   "value": 0.0,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0.0 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-VALID",
+   "result_repr": "0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n0.0 :: s(1) --> akblcm(N,N,N).\n1 :: akblcm(K,L,M) --> rep(K,A), rep(L,B), ",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "above_one_eps",
+   "value": 1.000001,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        1.000001 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '000001'  (at char 95), (line:3, col:11)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "nan",
+   "value": NaN,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        nan :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found 'nan'  (at char 93), (line:3, col:9)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "pos_inf",
+   "value": Infinity,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        inf :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found 'inf'  (at char 93), (line:3, col:9)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        -inf :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "error": "ParseException: Expected end of text, found '-'  (at char 93), (line:3, col:9)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "mode": "A",
+   "op": "double_dot",
+   "value": "0..5",
+   "from_test": "test_anbncn",
+   "focal_module": "deepstochlog.parser",
+   "focal_attr": "parse_rules",
+   "call_args": {
+    "program": "\n        0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n        0..5 :: s(1) --> akblcm(N,N,N).\n        akblcm(K,L,M) --> rep(K,A), rep(L,B), rep(M,C),{A\\=B, B\\=C, C\\=A}.\n        rep(0, _) --> [].\n        rep(s(N), C) --> [X], rep(N,C), {domain(C, [a,b,c]), nn(mnist, X, C)}.\n        "
+   },
+   "validity": "DOC-INVALID",
+   "result_repr": "0.5 :: s(0) --> akblcm(K,L,M),{K\\=L; L\\=M; M\\=K}, {K \\= 0, L \\= 0, M \\= 0}.\n0.\n0.5 :: s(1) --> akblcm(N,N,N).\n1 :: akblcm(K,L,M) --> rep(K,A), rep(L,B",
+   "verdict": "SILENTLY ACCEPTED (no validation observed)",
+   "ok": false
+  }
+ ]
+}

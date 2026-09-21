@@ -1,0 +1,1842 @@
+[
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.31510719656944275,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5333799719810486,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.49146348237991333,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 1.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 1.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 0.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.31510719656944275,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5333799719810486,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.49146348237991333,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 1.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 1.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 0.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.31510719656944275,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5333799719810486,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.49146348237991333,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 1.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 1.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 0.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.31510719656944275,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5333799719810486,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.49146348237991333,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 1.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 1.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 0.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.8312756419181824,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5332800149917603,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.5912739634513855,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 0.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMeanError",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 1.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0
+  },
+  "output": "ZeroDivisionError: division by zero",
+  "violated": false,
+  "reason": "p=0 is technically invalid per the `p>=1` contract, and it does get rejected -- but only by accident, via an uncaught ZeroDivisionError from the internal 1/p exponent, not through any deliberate validation"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -2
+  },
+  "output": 0.31510719656944275,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 1.0
+  },
+  "output": 0.5333799719810486,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 0.5
+  },
+  "output": 0.49146348237991333,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": NaN
+  },
+  "output": NaN,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": Infinity
+  },
+  "output": 1.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": -Infinity
+  },
+  "output": 1.0,
+  "violated": true,
+  "reason": "p violates the documented `p >= 1` contract but was accepted and produced a normal-looking finite result with no error"
+ },
+ {
+  "function": "ltn.fuzzy_ops.AggregPMean",
+  "test": "test_Quantifier",
+  "input": {
+   "p": 2000000
+  },
+  "output": 0.0,
+  "violated": false,
+  "reason": "matches documented `p >= 1` contract"
+ }
+]

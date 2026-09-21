@@ -1,0 +1,2101 @@
+{
+ "library": "lnn",
+ "generated": "2026-09-21 13:28:09",
+ "seconds": 1.88,
+ "gate": {
+  "gate": "passed",
+  "baseline_passed": 117,
+  "baseline_status": "ok"
+ },
+ "method": "Hand-declared corpus (AST discovery of LNN's own passing tests found no literal weight/bias/alpha call sites) targeting the real, documented `activation` dict parameter of lnn.And/lnn.Or, grounded in lnn/_exceptions.py (AssertWeights, AssertBias, AssertAlphaNodeValue, AssertAlphaNeuronArityValue) and in the library's own crisp three-valued truth table (tests/reasoning/logic/propositional/test_tri_and_1.py, test_tri_or_1.py).",
+ "n_cases": 40,
+ "n_violations": 12,
+ "results": [
+  {
+   "connective": "And",
+   "kind": "weights",
+   "op": "seed_default",
+   "value": "(1.0, 1.0)",
+   "accepted_at_construction": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "weights",
+   "op": "negative",
+   "value": "(-1.0, 1.0)",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    }
+   ],
+   "verdict": "SILENTLY ACCEPTED -- 5/6 truth-table rows wrong under this weights value",
+   "ok": false
+  },
+  {
+   "connective": "And",
+   "kind": "weights",
+   "op": "all_negative",
+   "value": "(-1.0, -1.0)",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    }
+   ],
+   "verdict": "SILENTLY ACCEPTED -- 5/6 truth-table rows wrong under this weights value",
+   "ok": false
+  },
+  {
+   "connective": "And",
+   "kind": "weights",
+   "op": "zero",
+   "value": "(0.0, 0.0)",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    }
+   ],
+   "verdict": "SILENTLY ACCEPTED -- 5/6 truth-table rows wrong under this weights value",
+   "ok": false
+  },
+  {
+   "connective": "And",
+   "kind": "weights",
+   "op": "nan",
+   "value": "(nan, 1.0)",
+   "accepted_at_construction": false,
+   "error": "Exception: output not in the feasible region [0, 1] for: tensor([0., 0.])",
+   "verdict": "unexpectedly rejected at construction (re-check _exceptions.py)",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "weights",
+   "op": "pos_inf",
+   "value": "(inf, 1.0)",
+   "accepted_at_construction": false,
+   "error": "Exception: output not in the feasible region [0, 1] for: tensor([0., 0.])",
+   "verdict": "unexpectedly rejected at construction (re-check _exceptions.py)",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "weights",
+   "op": "neg_inf",
+   "value": "(-inf, 1.0)",
+   "accepted_at_construction": false,
+   "error": "Exception: output not in the feasible region [0, 1] for: tensor([0., 0.])",
+   "verdict": "unexpectedly rejected at construction (re-check _exceptions.py)",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "weights",
+   "op": "huge",
+   "value": "(1000000.0, 1.0)",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": true
+    }
+   ],
+   "verdict": "ok (truth table still holds despite unchecked weight/bias)",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "bias",
+   "op": "seed_default",
+   "value": "1.0",
+   "accepted_at_construction": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "bias",
+   "op": "negative",
+   "value": "-3.0",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": true
+    }
+   ],
+   "verdict": "SILENTLY ACCEPTED -- 3/6 truth-table rows wrong under this bias value",
+   "ok": false
+  },
+  {
+   "connective": "And",
+   "kind": "bias",
+   "op": "zero",
+   "value": "0.0",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": true
+    }
+   ],
+   "verdict": "SILENTLY ACCEPTED -- 3/6 truth-table rows wrong under this bias value",
+   "ok": false
+  },
+  {
+   "connective": "And",
+   "kind": "bias",
+   "op": "nan",
+   "value": "nan",
+   "accepted_at_construction": false,
+   "error": "Exception: output not in the feasible region [0, 1] for: tensor([0., 0.])",
+   "verdict": "unexpectedly rejected at construction (re-check _exceptions.py)",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "bias",
+   "op": "pos_inf",
+   "value": "inf",
+   "accepted_at_construction": false,
+   "error": "Exception: output not in the feasible region [0, 1] for: tensor([0., 0.])",
+   "verdict": "unexpectedly rejected at construction (re-check _exceptions.py)",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "bias",
+   "op": "huge",
+   "value": "1000000.0",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    }
+   ],
+   "verdict": "SILENTLY ACCEPTED -- 5/6 truth-table rows wrong under this bias value",
+   "ok": false
+  },
+  {
+   "connective": "And",
+   "kind": "alpha",
+   "op": "seed_default",
+   "value": null,
+   "validity": "DOC-VALID",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "alpha",
+   "op": "valid_high",
+   "value": 0.9,
+   "validity": "DOC-VALID",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "alpha",
+   "op": "boundary_at_0.5",
+   "value": 0.5,
+   "validity": "DOC-INVALID",
+   "error": "ValueError: alpha expected between (.5, 1], received Parameter containing:\ntensor(0.5000)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "alpha",
+   "op": "below_range",
+   "value": 0.4,
+   "validity": "DOC-INVALID",
+   "error": "ValueError: alpha expected between (.5, 1], received Parameter containing:\ntensor(0.4000)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "alpha",
+   "op": "above_range",
+   "value": 1.1,
+   "validity": "DOC-INVALID",
+   "error": "ValueError: alpha expected between (.5, 1], received Parameter containing:\ntensor(1.1000)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "connective": "And",
+   "kind": "alpha",
+   "op": "below_arity_bound",
+   "value": 0.6,
+   "validity": "DOC-INVALID",
+   "error": "TypeError: unsupported format string passed to Parameter.__format__",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "weights",
+   "op": "seed_default",
+   "value": "(1.0, 1.0)",
+   "accepted_at_construction": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "weights",
+   "op": "negative",
+   "value": "(-1.0, 1.0)",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    }
+   ],
+   "verdict": "SILENTLY ACCEPTED -- 3/6 truth-table rows wrong under this weights value",
+   "ok": false
+  },
+  {
+   "connective": "Or",
+   "kind": "weights",
+   "op": "all_negative",
+   "value": "(-1.0, -1.0)",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    }
+   ],
+   "verdict": "SILENTLY ACCEPTED -- 5/6 truth-table rows wrong under this weights value",
+   "ok": false
+  },
+  {
+   "connective": "Or",
+   "kind": "weights",
+   "op": "zero",
+   "value": "(0.0, 0.0)",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    }
+   ],
+   "verdict": "SILENTLY ACCEPTED -- 5/6 truth-table rows wrong under this weights value",
+   "ok": false
+  },
+  {
+   "connective": "Or",
+   "kind": "weights",
+   "op": "nan",
+   "value": "(nan, 1.0)",
+   "accepted_at_construction": false,
+   "error": "Exception: output not in the feasible region [0, 1] for: tensor([0., 0.])",
+   "verdict": "unexpectedly rejected at construction (re-check _exceptions.py)",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "weights",
+   "op": "pos_inf",
+   "value": "(inf, 1.0)",
+   "accepted_at_construction": false,
+   "error": "Exception: output not in the feasible region [0, 1] for: tensor([0., 0.])",
+   "verdict": "unexpectedly rejected at construction (re-check _exceptions.py)",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "weights",
+   "op": "neg_inf",
+   "value": "(-inf, 1.0)",
+   "accepted_at_construction": false,
+   "error": "Exception: output not in the feasible region [0, 1] for: tensor([0., 0.])",
+   "verdict": "unexpectedly rejected at construction (re-check _exceptions.py)",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "weights",
+   "op": "huge",
+   "value": "(1000000.0, 1.0)",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    }
+   ],
+   "verdict": "ok (truth table still holds despite unchecked weight/bias)",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "bias",
+   "op": "seed_default",
+   "value": "1.0",
+   "accepted_at_construction": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "bias",
+   "op": "negative",
+   "value": "-3.0",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    }
+   ],
+   "verdict": "SILENTLY ACCEPTED -- 3/6 truth-table rows wrong under this bias value",
+   "ok": false
+  },
+  {
+   "connective": "Or",
+   "kind": "bias",
+   "op": "zero",
+   "value": "0.0",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      1.0,
+      1.0
+     ],
+     "finite": true,
+     "matches": false
+    }
+   ],
+   "verdict": "SILENTLY ACCEPTED -- 3/6 truth-table rows wrong under this bias value",
+   "ok": false
+  },
+  {
+   "connective": "Or",
+   "kind": "bias",
+   "op": "nan",
+   "value": "nan",
+   "accepted_at_construction": false,
+   "error": "Exception: output not in the feasible region [0, 1] for: tensor([0., 0.])",
+   "verdict": "unexpectedly rejected at construction (re-check _exceptions.py)",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "bias",
+   "op": "pos_inf",
+   "value": "inf",
+   "accepted_at_construction": false,
+   "error": "Exception: output not in the feasible region [0, 1] for: tensor([0., 0.])",
+   "verdict": "unexpectedly rejected at construction (re-check _exceptions.py)",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "bias",
+   "op": "huge",
+   "value": "1000000.0",
+   "accepted_at_construction": true,
+   "rows": [
+    {
+     "a": [
+      1.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      0.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      0.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": true
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      1.0,
+      1.0
+     ],
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      1.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    },
+    {
+     "a": [
+      0.0,
+      1.0
+     ],
+     "b": [
+      0.0,
+      0.0
+     ],
+     "expected": [
+      0.0,
+      1.0
+     ],
+     "got": [
+      0.0,
+      0.0
+     ],
+     "finite": true,
+     "matches": false
+    }
+   ],
+   "verdict": "SILENTLY ACCEPTED -- 5/6 truth-table rows wrong under this bias value",
+   "ok": false
+  },
+  {
+   "connective": "Or",
+   "kind": "alpha",
+   "op": "seed_default",
+   "value": null,
+   "validity": "DOC-VALID",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "alpha",
+   "op": "valid_high",
+   "value": 0.9,
+   "validity": "DOC-VALID",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "alpha",
+   "op": "boundary_at_0.5",
+   "value": 0.5,
+   "validity": "DOC-INVALID",
+   "error": "ValueError: alpha expected between (.5, 1], received Parameter containing:\ntensor(0.5000)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "alpha",
+   "op": "below_range",
+   "value": 0.4,
+   "validity": "DOC-INVALID",
+   "error": "ValueError: alpha expected between (.5, 1], received Parameter containing:\ntensor(0.4000)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "alpha",
+   "op": "above_range",
+   "value": 1.1,
+   "validity": "DOC-INVALID",
+   "error": "ValueError: alpha expected between (.5, 1], received Parameter containing:\ntensor(1.1000)",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "connective": "Or",
+   "kind": "alpha",
+   "op": "below_arity_bound",
+   "value": 0.6,
+   "validity": "DOC-INVALID",
+   "error": "TypeError: unsupported format string passed to Parameter.__format__",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  }
+ ]
+}

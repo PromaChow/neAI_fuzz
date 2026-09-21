@@ -1,0 +1,1363 @@
+{
+ "library": "deepproblog",
+ "generated": "2026-09-21 19:15:04",
+ "seconds": 3.68,
+ "gate": {
+  "gate": "passed",
+  "baseline_passed": 65,
+  "baseline_status": "ok",
+  "test_root": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests",
+  "passing_tests": [
+   {
+    "test": "test_builtin::test_tensor_index",
+    "file": ""
+   },
+   {
+    "test": "test_builtin::test_less_than",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_basic[cache_factory0]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_basic[cache_factory1]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_basic[cache_factory2]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_basic[cache_factory3]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_hash_collision[cache_factory0]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_hash_collision[cache_factory1]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_hash_collision[cache_factory2]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_hash_collision[cache_factory3]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_invalidate[cache_factory0]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_invalidate[cache_factory1]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_invalidate[cache_factory2]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_invalidate[cache_factory3]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_unhashable[cache_factory1]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_unhashable[cache_factory2]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_unhashable[cache_factory3]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_key_func[cache_factory0]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_key_func[cache_factory1]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_key_func[cache_factory2]",
+    "file": ""
+   },
+   {
+    "test": "test_cache::test_key_func[cache_factory3]",
+    "file": ""
+   },
+   {
+    "test": "test_dataset::test_query_dataset",
+    "file": ""
+   },
+   {
+    "test": "test_dataset::test_dataset_write_to_file",
+    "file": ""
+   },
+   {
+    "test": "test_dataset::test_subset",
+    "file": ""
+   },
+   {
+    "test": "test_dataset::test_extension",
+    "file": ""
+   },
+   {
+    "test": "test_dataset::test_mutating_dataset",
+    "file": ""
+   },
+   {
+    "test": "test_dataset::test_noise_mutator",
+    "file": ""
+   },
+   {
+    "test": "test_dataset::test_numeric_incorrect_output_mutator",
+    "file": ""
+   },
+   {
+    "test": "test_dataset::test_dataloader",
+    "file": ""
+   },
+   {
+    "test": "test_model::test_model_basics[model1]",
+    "file": ""
+   },
+   {
+    "test": "test_model::test_model_basics[model2]",
+    "file": ""
+   },
+   {
+    "test": "test_model::test_solve[model1]",
+    "file": ""
+   },
+   {
+    "test": "test_model::test_solve[model2]",
+    "file": ""
+   },
+   {
+    "test": "test_neural_predicate::test_model_basics[model1]",
+    "file": ""
+   },
+   {
+    "test": "test_neural_predicate::test_model_basics[model2]",
+    "file": ""
+   },
+   {
+    "test": "test_neural_predicate::test_ad_network[model1]",
+    "file": ""
+   },
+   {
+    "test": "test_neural_predicate::test_ad_network[model2]",
+    "file": ""
+   },
+   {
+    "test": "test_neural_predicate::test_fact_network[model1]",
+    "file": ""
+   },
+   {
+    "test": "test_neural_predicate::test_fact_network[model2]",
+    "file": ""
+   },
+   {
+    "test": "test_neural_predicate::test_det_network[model1]",
+    "file": ""
+   },
+   {
+    "test": "test_neural_predicate::test_det_network[model2]",
+    "file": ""
+   },
+   {
+    "test": "test_neural_predicate::test_det_network_substitution[model1]",
+    "file": ""
+   },
+   {
+    "test": "test_neural_predicate::test_det_network_substitution[model2]",
+    "file": ""
+   },
+   {
+    "test": "test_neural_predicate::test_multi_input_network[model1]",
+    "file": ""
+   },
+   {
+    "test": "test_neural_predicate::test_multi_input_network[model2]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_small_probabilities_are_summed[1e-08]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_small_probabilities_are_summed[1e-06]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_small_probabilities_are_summed[5e-06]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_small_probabilities_are_summed[1e-05]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_small_probabilities_are_summed[1.0001e-05]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_small_probabilities_are_summed[0.1]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_small_probabilities_are_summed[0.3]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_probabilities_near_one_are_multiplied[0.99999999]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_probabilities_near_one_are_multiplied[0.999999]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_probabilities_near_one_are_multiplied[0.99999]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_probabilities_near_one_are_multiplied[0.9]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_small_probabilities_keep_their_gradient",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_is_exact_zero_and_one",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_neutral_elements_keep_tensors_in_the_graph",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_saturated_network_keeps_gradient_and_finite_loss",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_exhaustive_ad_stays_a_probability",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_training_through_the_circuit_is_stable",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_loss_survives_round_off_probabilities[1.0--1.192093e-07]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_loss_survives_round_off_probabilities[0.0-1.0000001192093]",
+    "file": ""
+   },
+   {
+    "test": "test_semiring::test_float_loss_survives_round_off_probabilities",
+    "file": ""
+   }
+  ]
+ },
+ "test_root": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests",
+ "method": "AST-discovered every `<number>::pred(args).` / `t(<number>)::pred(args).` probabilistic-fact clause and every literal DummyNet belief vector actually referenced inside a Model(...)/Network(...) call in DeepProbLog's own passing test files, mutated each literal in place, and re-ran the REAL Model -> ExactEngine -> solve pipeline exactly as those tests' own helpers do.",
+ "n_program_strings": 2,
+ "n_program_cases": 42,
+ "n_belief_surfaces": 2,
+ "n_belief_cases": 14,
+ "n_violations": 24,
+ "program_results": [
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "a",
+   "kind": "lit",
+   "op": "seed",
+   "value": 0.5,
+   "seed_value": 0.5,
+   "group_size": 1,
+   "validity": "DOC-VALID",
+   "result": 0.5,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "a",
+   "kind": "lit",
+   "op": "negate",
+   "value": -0.5,
+   "seed_value": 0.5,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "result": -0.5,
+   "in_range": false,
+   "exact_match": true,
+   "verdict": "SILENTLY ACCEPTED, pass-through exact",
+   "ok": false
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "a",
+   "kind": "lit",
+   "op": "above_one",
+   "value": 1.5,
+   "seed_value": 0.5,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "result": 1.5,
+   "in_range": false,
+   "exact_match": true,
+   "verdict": "SILENTLY ACCEPTED, pass-through exact",
+   "ok": false
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "a",
+   "kind": "lit",
+   "op": "zero",
+   "value": 0.0,
+   "seed_value": 0.5,
+   "group_size": 1,
+   "validity": "DOC-VALID",
+   "result": 0.0,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "a",
+   "kind": "lit",
+   "op": "nan",
+   "value": NaN,
+   "seed_value": 0.5,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term nan",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "a",
+   "kind": "lit",
+   "op": "pos_inf",
+   "value": Infinity,
+   "seed_value": 0.5,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term inf",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "a",
+   "kind": "lit",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "seed_value": 0.5,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term '-'",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy1)",
+   "kind": "lit",
+   "op": "seed",
+   "value": 0.1,
+   "seed_value": 0.1,
+   "group_size": 1,
+   "validity": "DOC-VALID",
+   "result": 0.1,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy1)",
+   "kind": "lit",
+   "op": "negate",
+   "value": -0.1,
+   "seed_value": 0.1,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "result": -0.1,
+   "in_range": false,
+   "exact_match": true,
+   "verdict": "SILENTLY ACCEPTED, pass-through exact",
+   "ok": false
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy1)",
+   "kind": "lit",
+   "op": "above_one",
+   "value": 1.1,
+   "seed_value": 0.1,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "result": 1.1,
+   "in_range": false,
+   "exact_match": true,
+   "verdict": "SILENTLY ACCEPTED, pass-through exact",
+   "ok": false
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy1)",
+   "kind": "lit",
+   "op": "zero",
+   "value": 0.0,
+   "seed_value": 0.1,
+   "group_size": 1,
+   "validity": "DOC-VALID",
+   "result": 0.0,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy1)",
+   "kind": "lit",
+   "op": "nan",
+   "value": NaN,
+   "seed_value": 0.1,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term nan",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy1)",
+   "kind": "lit",
+   "op": "pos_inf",
+   "value": Infinity,
+   "seed_value": 0.1,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term inf",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy1)",
+   "kind": "lit",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "seed_value": 0.1,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term '-'",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy2)",
+   "kind": "lit",
+   "op": "seed",
+   "value": 0.2,
+   "seed_value": 0.2,
+   "group_size": 1,
+   "validity": "DOC-VALID",
+   "result": 0.2,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy2)",
+   "kind": "lit",
+   "op": "negate",
+   "value": -0.2,
+   "seed_value": 0.2,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "result": -0.2,
+   "in_range": false,
+   "exact_match": true,
+   "verdict": "SILENTLY ACCEPTED, pass-through exact",
+   "ok": false
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy2)",
+   "kind": "lit",
+   "op": "above_one",
+   "value": 1.2,
+   "seed_value": 0.2,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "result": 1.2,
+   "in_range": false,
+   "exact_match": true,
+   "verdict": "SILENTLY ACCEPTED, pass-through exact",
+   "ok": false
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy2)",
+   "kind": "lit",
+   "op": "zero",
+   "value": 0.0,
+   "seed_value": 0.2,
+   "group_size": 1,
+   "validity": "DOC-VALID",
+   "result": 0.0,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy2)",
+   "kind": "lit",
+   "op": "nan",
+   "value": NaN,
+   "seed_value": 0.2,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term nan",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy2)",
+   "kind": "lit",
+   "op": "pos_inf",
+   "value": Infinity,
+   "seed_value": 0.2,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term inf",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_model.py",
+   "from_var": "_simple_program",
+   "pred": "multiple_answers(dummy2)",
+   "kind": "lit",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "seed_value": 0.2,
+   "group_size": 1,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term '-'",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "a",
+   "kind": "tparam",
+   "op": "seed",
+   "value": 1e-08,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-VALID",
+   "result": 1e-08,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "a",
+   "kind": "tparam",
+   "op": "negate",
+   "value": -1e-08,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "result": -1.0000000000000002e-08,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "SILENTLY ACCEPTED, pass-through exact",
+   "ok": false
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "a",
+   "kind": "tparam",
+   "op": "above_one",
+   "value": 1.00000001,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "result": 1.00000001,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "SILENTLY ACCEPTED, pass-through exact",
+   "ok": false
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "a",
+   "kind": "tparam",
+   "op": "zero",
+   "value": 0.0,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-VALID",
+   "result": 0.0,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "a",
+   "kind": "tparam",
+   "op": "nan",
+   "value": NaN,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term nan",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "a",
+   "kind": "tparam",
+   "op": "pos_inf",
+   "value": Infinity,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term inf",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "a",
+   "kind": "tparam",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term '-'",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "b",
+   "kind": "tparam",
+   "op": "seed",
+   "value": 1e-08,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-VALID",
+   "result": 1e-08,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "b",
+   "kind": "tparam",
+   "op": "negate",
+   "value": -1e-08,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "result": -1.0000000000000002e-08,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "SILENTLY ACCEPTED, pass-through exact",
+   "ok": false
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "b",
+   "kind": "tparam",
+   "op": "above_one",
+   "value": 1.00000001,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "result": 1.00000001,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "SILENTLY ACCEPTED, pass-through exact",
+   "ok": false
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "b",
+   "kind": "tparam",
+   "op": "zero",
+   "value": 0.0,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-VALID",
+   "result": 0.0,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "b",
+   "kind": "tparam",
+   "op": "nan",
+   "value": NaN,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term nan",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "b",
+   "kind": "tparam",
+   "op": "pos_inf",
+   "value": Infinity,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term inf",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "b",
+   "kind": "tparam",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "seed_value": 1e-08,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term '-'",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "c",
+   "kind": "tparam",
+   "op": "seed",
+   "value": 0.99999998,
+   "seed_value": 0.99999998,
+   "group_size": 3,
+   "validity": "DOC-VALID",
+   "result": 0.99999998,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "c",
+   "kind": "tparam",
+   "op": "negate",
+   "value": -0.99999998,
+   "seed_value": 0.99999998,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "result": -0.99999998,
+   "in_range": false,
+   "exact_match": true,
+   "verdict": "SILENTLY ACCEPTED, pass-through exact",
+   "ok": false
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "c",
+   "kind": "tparam",
+   "op": "above_one",
+   "value": 2.49999995,
+   "seed_value": 0.99999998,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "result": 2.49999995,
+   "in_range": false,
+   "exact_match": true,
+   "verdict": "SILENTLY ACCEPTED, pass-through exact",
+   "ok": false
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "c",
+   "kind": "tparam",
+   "op": "zero",
+   "value": 0.0,
+   "seed_value": 0.99999998,
+   "group_size": 3,
+   "validity": "DOC-VALID",
+   "result": 0.0,
+   "in_range": true,
+   "exact_match": true,
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "c",
+   "kind": "tparam",
+   "op": "nan",
+   "value": NaN,
+   "seed_value": 0.99999998,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term nan",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "c",
+   "kind": "tparam",
+   "op": "pos_inf",
+   "value": Infinity,
+   "seed_value": 0.99999998,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term inf",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  },
+  {
+   "surface": "program",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_semiring.py",
+   "from_var": "program",
+   "pred": "c",
+   "kind": "tparam",
+   "op": "neg_inf",
+   "value": -Infinity,
+   "seed_value": 0.99999998,
+   "group_size": 3,
+   "validity": "DOC-INVALID",
+   "error": "Exception: unhandled term '-'",
+   "verdict": "REJECTED (correct)",
+   "ok": true
+  }
+ ],
+ "belief_results": [
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy1",
+   "pred": "net1",
+   "role": "nn4_ad",
+   "domain": [
+    "a",
+    "b",
+    "c"
+   ],
+   "op": "seed",
+   "value": [
+    0.8,
+    0.15,
+    0.05
+   ],
+   "seed_value": [
+    0.8,
+    0.15,
+    0.05
+   ],
+   "branch_values": {
+    "a": 0.800000011920929,
+    "b": 0.15000000596046448,
+    "c": 0.05000000074505806
+   },
+   "sum": 1.0000000186264515,
+   "all_in_range": true,
+   "sums_to_one": true,
+   "validity": "DOC-VALID",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy1",
+   "pred": "net1",
+   "role": "nn4_ad",
+   "domain": [
+    "a",
+    "b",
+    "c"
+   ],
+   "op": "raw_logits",
+   "value": [
+    3.2,
+    -1.1,
+    0.4
+   ],
+   "seed_value": [
+    0.8,
+    0.15,
+    0.05
+   ],
+   "branch_values": {
+    "a": 3.200000047683716,
+    "b": -1.1000001430511475,
+    "c": 0.4000000059604645
+   },
+   "sum": 2.499999910593033,
+   "all_in_range": false,
+   "sums_to_one": false,
+   "validity": "DOC-INVALID",
+   "verdict": "SILENTLY ACCEPTED (no validation observed)",
+   "ok": false
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy1",
+   "pred": "net1",
+   "role": "nn4_ad",
+   "domain": [
+    "a",
+    "b",
+    "c"
+   ],
+   "op": "raw_logits_2",
+   "value": [
+    -0.5,
+    0.75,
+    0.75
+   ],
+   "seed_value": [
+    0.8,
+    0.15,
+    0.05
+   ],
+   "branch_values": {
+    "a": -0.5,
+    "b": 0.75,
+    "c": 0.75
+   },
+   "sum": 1.0,
+   "all_in_range": false,
+   "sums_to_one": true,
+   "validity": "DOC-INVALID",
+   "verdict": "SILENTLY ACCEPTED (no validation observed)",
+   "ok": false
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy1",
+   "pred": "net1",
+   "role": "nn4_ad",
+   "domain": [
+    "a",
+    "b",
+    "c"
+   ],
+   "op": "sigmoid_not_softmax",
+   "value": [
+    0.9,
+    0.9,
+    0.9
+   ],
+   "seed_value": [
+    0.8,
+    0.15,
+    0.05
+   ],
+   "branch_values": {
+    "a": 0.8999999761581421,
+    "b": 0.8999999761581421,
+    "c": 0.8999999761581421
+   },
+   "sum": 2.6999999284744263,
+   "all_in_range": true,
+   "sums_to_one": false,
+   "validity": "DOC-INVALID",
+   "verdict": "SILENTLY ACCEPTED (no validation observed)",
+   "ok": false
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy1",
+   "pred": "net1",
+   "role": "nn4_ad",
+   "domain": [
+    "a",
+    "b",
+    "c"
+   ],
+   "op": "low_sigmoid",
+   "value": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "seed_value": [
+    0.8,
+    0.15,
+    0.05
+   ],
+   "branch_values": {
+    "a": 0.10000000149011612,
+    "b": 0.10000000149011612,
+    "c": 0.10000000149011612
+   },
+   "sum": 0.30000000447034836,
+   "all_in_range": true,
+   "sums_to_one": false,
+   "validity": "DOC-INVALID",
+   "verdict": "SILENTLY ACCEPTED (no validation observed)",
+   "ok": false
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy1",
+   "pred": "net1",
+   "role": "nn4_ad",
+   "domain": [
+    "a",
+    "b",
+    "c"
+   ],
+   "op": "all_zero",
+   "value": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "seed_value": [
+    0.8,
+    0.15,
+    0.05
+   ],
+   "branch_values": {
+    "a": 0.0,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "sum": 0.0,
+   "all_in_range": true,
+   "sums_to_one": false,
+   "validity": "DOC-INVALID",
+   "verdict": "SILENTLY ACCEPTED (no validation observed)",
+   "ok": false
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy1",
+   "pred": "net1",
+   "role": "nn4_ad",
+   "domain": [
+    "a",
+    "b",
+    "c"
+   ],
+   "op": "nan",
+   "value": [
+    NaN,
+    0.5,
+    0.5
+   ],
+   "seed_value": [
+    0.8,
+    0.15,
+    0.05
+   ],
+   "branch_values": {
+    "a": NaN,
+    "b": 0.5,
+    "c": 0.5
+   },
+   "sum": null,
+   "all_in_range": false,
+   "sums_to_one": false,
+   "validity": "DOC-INVALID",
+   "verdict": "SILENTLY ACCEPTED (non-finite propagated)",
+   "ok": false
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy1",
+   "pred": "net1",
+   "role": "nn4_ad",
+   "domain": [
+    "a",
+    "b",
+    "c"
+   ],
+   "op": "pos_inf",
+   "value": [
+    Infinity,
+    0.0,
+    0.0
+   ],
+   "seed_value": [
+    0.8,
+    0.15,
+    0.05
+   ],
+   "branch_values": {
+    "a": NaN,
+    "b": 0.0,
+    "c": 0.0
+   },
+   "sum": null,
+   "all_in_range": false,
+   "sums_to_one": false,
+   "validity": "DOC-INVALID",
+   "verdict": "SILENTLY ACCEPTED (non-finite propagated)",
+   "ok": false
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy1",
+   "pred": "net1",
+   "role": "nn4_ad",
+   "domain": [
+    "a",
+    "b",
+    "c"
+   ],
+   "op": "neg_inf",
+   "value": [
+    -Infinity,
+    1.0,
+    0.0
+   ],
+   "seed_value": [
+    0.8,
+    0.15,
+    0.05
+   ],
+   "branch_values": {
+    "a": NaN,
+    "b": 1.0,
+    "c": 0.0
+   },
+   "sum": null,
+   "all_in_range": false,
+   "sums_to_one": false,
+   "validity": "DOC-INVALID",
+   "verdict": "SILENTLY ACCEPTED (non-finite propagated)",
+   "ok": false
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy2",
+   "pred": "net2",
+   "role": "nn2_fact",
+   "domain": null,
+   "op": "seed",
+   "value": [
+    0.8
+   ],
+   "seed_value": [
+    0.8
+   ],
+   "result": 0.800000011920929,
+   "validity": "DOC-VALID",
+   "verdict": "ok",
+   "ok": true
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy2",
+   "pred": "net2",
+   "role": "nn2_fact",
+   "domain": null,
+   "op": "raw_negative",
+   "value": [
+    -0.5
+   ],
+   "seed_value": [
+    0.8
+   ],
+   "result": -0.5,
+   "validity": "DOC-INVALID",
+   "verdict": "SILENTLY ACCEPTED (no validation observed)",
+   "ok": false
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy2",
+   "pred": "net2",
+   "role": "nn2_fact",
+   "domain": null,
+   "op": "raw_above_one",
+   "value": [
+    1.7
+   ],
+   "seed_value": [
+    0.8
+   ],
+   "result": 1.7000000476837158,
+   "validity": "DOC-INVALID",
+   "verdict": "SILENTLY ACCEPTED (no validation observed)",
+   "ok": false
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy2",
+   "pred": "net2",
+   "role": "nn2_fact",
+   "domain": null,
+   "op": "nan",
+   "value": [
+    NaN
+   ],
+   "seed_value": [
+    0.8
+   ],
+   "result": NaN,
+   "validity": "DOC-INVALID",
+   "verdict": "SILENTLY ACCEPTED (non-finite propagated)",
+   "ok": false
+  },
+  {
+   "surface": "belief",
+   "from_file": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests/test_neural_predicate.py",
+   "netname": "dummy2",
+   "pred": "net2",
+   "role": "nn2_fact",
+   "domain": null,
+   "op": "pos_inf",
+   "value": [
+    Infinity
+   ],
+   "seed_value": [
+    0.8
+   ],
+   "result": NaN,
+   "validity": "DOC-INVALID",
+   "verdict": "SILENTLY ACCEPTED (non-finite propagated)",
+   "ok": false
+  }
+ ]
+}

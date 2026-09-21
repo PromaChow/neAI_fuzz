@@ -1,0 +1,351 @@
+{
+  "library": "deepproblog",
+  "import_name": "deepproblog",
+  "notes": "ships tests in the pip package itself; standard test_*.py naming",
+  "documented_command": "python -m deepproblog test",
+  "repo_url": "https://github.com/ML-KULeuven/deepproblog.git",
+  "runner": "pytest",
+  "test_root": "/usr/local/lib/python3.11/dist-packages/deepproblog/tests",
+  "test_source": "site_packages",
+  "locate_diagnostics": {
+    "import_ok": true,
+    "package_dir": "/usr/local/lib/python3.11/dist-packages/deepproblog",
+    "tried": [
+      "/usr/local/lib/python3.11/dist-packages/deepproblog/tests"
+    ]
+  },
+  "command": "/usr/bin/python3 -m pytest /usr/local/lib/python3.11/dist-packages/deepproblog/tests -q --no-header -p no:cacheprovider -o python_files=*.py --continue-on-collection-errors --junitxml=/tmp/tmp7pv43t3l/report.xml",
+  "seconds": 8.22,
+  "returncode": 0,
+  "stdout_tail": [
+    "  /usr/local/lib/python3.11/dist-packages/deepproblog/engines/__init__.py:6: UserWarning: ApproximateEngine is not available as PySwip could not be found",
+    "    warnings.warn(\"ApproximateEngine is not available as PySwip could not be found\")",
+    "",
+    "test_neural_predicate.py::test_ad_network[model1]",
+    "  /usr/local/lib/python3.11/dist-packages/deepproblog/semiring/graph_semiring.py:95: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.",
+    "  Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)",
+    "    return -self.eps <= float(a) <= self.eps",
+    "",
+    "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+    "65 passed, 11 skipped, 2 warnings in 6.46s"
+  ],
+  "stderr_tail": [],
+  "warnings": [
+    "=============================== warnings summary ===============================",
+    "  /usr/local/lib/python3.11/dist-packages/deepproblog/engines/__init__.py:6: UserWarning: ApproximateEngine is not available as PySwip could not be found",
+    "    warnings.warn(\"ApproximateEngine is not available as PySwip could not be found\")",
+    "  /usr/local/lib/python3.11/dist-packages/deepproblog/semiring/graph_semiring.py:95: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.",
+    "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+    "65 passed, 11 skipped, 2 warnings in 6.46s"
+  ],
+  "exit_meaning": "all_passed",
+  "junit": {
+    "counts": {
+      "tests": 76,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 11,
+      "passed": 65
+    },
+    "failing_tests": [],
+    "n_failing_recorded": 0,
+    "passing_tests": [
+      {
+        "test": "test_builtin::test_tensor_index",
+        "file": ""
+      },
+      {
+        "test": "test_builtin::test_less_than",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_basic[cache_factory0]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_basic[cache_factory1]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_basic[cache_factory2]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_basic[cache_factory3]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_hash_collision[cache_factory0]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_hash_collision[cache_factory1]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_hash_collision[cache_factory2]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_hash_collision[cache_factory3]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_invalidate[cache_factory0]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_invalidate[cache_factory1]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_invalidate[cache_factory2]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_invalidate[cache_factory3]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_unhashable[cache_factory1]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_unhashable[cache_factory2]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_unhashable[cache_factory3]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_key_func[cache_factory0]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_key_func[cache_factory1]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_key_func[cache_factory2]",
+        "file": ""
+      },
+      {
+        "test": "test_cache::test_key_func[cache_factory3]",
+        "file": ""
+      },
+      {
+        "test": "test_dataset::test_query_dataset",
+        "file": ""
+      },
+      {
+        "test": "test_dataset::test_dataset_write_to_file",
+        "file": ""
+      },
+      {
+        "test": "test_dataset::test_subset",
+        "file": ""
+      },
+      {
+        "test": "test_dataset::test_extension",
+        "file": ""
+      },
+      {
+        "test": "test_dataset::test_mutating_dataset",
+        "file": ""
+      },
+      {
+        "test": "test_dataset::test_noise_mutator",
+        "file": ""
+      },
+      {
+        "test": "test_dataset::test_numeric_incorrect_output_mutator",
+        "file": ""
+      },
+      {
+        "test": "test_dataset::test_dataloader",
+        "file": ""
+      },
+      {
+        "test": "test_model::test_model_basics[model1]",
+        "file": ""
+      },
+      {
+        "test": "test_model::test_model_basics[model2]",
+        "file": ""
+      },
+      {
+        "test": "test_model::test_solve[model1]",
+        "file": ""
+      },
+      {
+        "test": "test_model::test_solve[model2]",
+        "file": ""
+      },
+      {
+        "test": "test_neural_predicate::test_model_basics[model1]",
+        "file": ""
+      },
+      {
+        "test": "test_neural_predicate::test_model_basics[model2]",
+        "file": ""
+      },
+      {
+        "test": "test_neural_predicate::test_ad_network[model1]",
+        "file": ""
+      },
+      {
+        "test": "test_neural_predicate::test_ad_network[model2]",
+        "file": ""
+      },
+      {
+        "test": "test_neural_predicate::test_fact_network[model1]",
+        "file": ""
+      },
+      {
+        "test": "test_neural_predicate::test_fact_network[model2]",
+        "file": ""
+      },
+      {
+        "test": "test_neural_predicate::test_det_network[model1]",
+        "file": ""
+      },
+      {
+        "test": "test_neural_predicate::test_det_network[model2]",
+        "file": ""
+      },
+      {
+        "test": "test_neural_predicate::test_det_network_substitution[model1]",
+        "file": ""
+      },
+      {
+        "test": "test_neural_predicate::test_det_network_substitution[model2]",
+        "file": ""
+      },
+      {
+        "test": "test_neural_predicate::test_multi_input_network[model1]",
+        "file": ""
+      },
+      {
+        "test": "test_neural_predicate::test_multi_input_network[model2]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_small_probabilities_are_summed[1e-08]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_small_probabilities_are_summed[1e-06]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_small_probabilities_are_summed[5e-06]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_small_probabilities_are_summed[1e-05]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_small_probabilities_are_summed[1.0001e-05]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_small_probabilities_are_summed[0.1]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_small_probabilities_are_summed[0.3]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_probabilities_near_one_are_multiplied[0.99999999]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_probabilities_near_one_are_multiplied[0.999999]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_probabilities_near_one_are_multiplied[0.99999]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_probabilities_near_one_are_multiplied[0.9]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_small_probabilities_keep_their_gradient",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_is_exact_zero_and_one",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_neutral_elements_keep_tensors_in_the_graph",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_saturated_network_keeps_gradient_and_finite_loss",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_exhaustive_ad_stays_a_probability",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_training_through_the_circuit_is_stable",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_loss_survives_round_off_probabilities[1.0--1.192093e-07]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_loss_survives_round_off_probabilities[0.0-1.0000001192093]",
+        "file": ""
+      },
+      {
+        "test": "test_semiring::test_float_loss_survives_round_off_probabilities",
+        "file": ""
+      }
+    ]
+  },
+  "status": "ok",
+  "environment": {
+    "timestamp": "2026-09-21T19:06:54+0600",
+    "python_version": "3.11.15 (main, Mar  3 2026, 09:26:23) [GCC 13.3.0]",
+    "python_executable": "/usr/bin/python3",
+    "platform": "Linux-6.18.44-fc-v37-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "packages": {
+      "deepproblog": "unknown",
+      "ltn": null,
+      "scallopy": null,
+      "neurasp": null,
+      "deepstochlog": null,
+      "deepsoftlog": null,
+      "pylon": null,
+      "SLASH": null,
+      "spl": null,
+      "pslpython": null,
+      "problog": "unknown",
+      "pysdd": "1.0.0",
+      "clingo": null,
+      "torch": "2.14.0+cu130",
+      "torchvision": "0.29.0+cu130",
+      "pytest": "9.1.1",
+      "numpy": "2.4.4",
+      "pyswip": null
+    },
+    "cuda": {
+      "available": false,
+      "version": "13.0",
+      "device_count": 0
+    },
+    "PYTHONHASHSEED": null,
+    "OMP_NUM_THREADS": null
+  }
+}

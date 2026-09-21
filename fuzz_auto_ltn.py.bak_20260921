@@ -1,0 +1,406 @@
+#!/usr/bin/env python3
+"""
+fuzz_auto_ltn.py — focal-method fuzzer for LTN (LTNtorch), same methodology as
+fuzz_auto_deepstochlog.py: baseline-gated, discovers real call sites with
+literal numeric/bool arguments inside LTN's OWN passing test file via AST,
+mutates those literals, and calls the REAL production class/function directly
+(never a synthetic reimplementation).
+
+Why this looks different from the DeepStochLog version:
+  - LTN has no string DSL, so there is no Mode A (DSL-string) target at all.
+  - LTN's tests/tests.py is a single flat module of plain `def test_*`
+    functions (no unittest.TestCase classes), and almost every call in it
+    passes torch.nn.Module instances or lambdas, not int/float/bool literals
+    — those aren't fuzzable by argument mutation. Direct AST inspection
+    (see notes at bottom) found exactly one real literal-argument attack
+    surface: the `p` hyper-parameter of the two power-mean aggregation
+    operators, `ltn.fuzzy_ops.AggregPMean` / `AggregPMeanError`, constructed
+    in test_Quantifier as `AggregPMean(p=2)` / `AggregPMeanError(p=2)`.
+  - `stable` (bool) kwargs on AndProd/OrProbSum/ImpliesReichenbach/
+    ImpliesGoguen were deliberately EXCLUDED: LTN's own docstrings document
+    `stable=False` as a supported, valid alternate mode (not a contract
+    violation), so flipping it has no oracle to check against. Discovery
+    below still finds these calls (general, not hardcoded to AggregP*) but
+    they are labelled N/A and never counted as violations.
+
+Grounded oracle (read directly from ltn/fuzzy_ops.py docstrings before
+writing this):
+  AggregPMean docstring: "p >= 1" is required ("selected as an approximation
+  of \\exists with p >= 1"). AggregPMeanError is the dual (approximates
+  \\forall) with the same p >= 1 requirement, mathematically inverted.
+  Both classes' __init__ perform ZERO validation on `p` — confirmed by
+  reading the source (self.p = p, no isinstance/range check anywhere).
+  For xs in [0,1] and integer p >= 1, the power-mean is provably in [0,1],
+  so DOC-VALID p must yield a finite value in [0,1]. DOC-INVALID p (p<1,
+  non-finite) is a violation if it is silently accepted (no error) at all
+  OR (if accepted) produces a finite in-range-looking value that is not
+  flagged as invalid.
+
+Usage:
+    python fuzz_auto_ltn.py --list            # print discovered call sites, run nothing
+    python fuzz_auto_ltn.py                   # gate-check, then run
+    python fuzz_auto_ltn.py --force           # skip the gate check (debug only)
+"""
+from __future__ import annotations
+
+import argparse
+import ast
+import importlib
+import json
+import math
+import pathlib
+import signal
+import sys
+import time
+import warnings
+from dataclasses import dataclass, field
+from typing import Any
+
+HERE = pathlib.Path(__file__).resolve().parent
+RESULTS = HERE / "results"
+GATE_FILE = RESULTS / "ltn_tests.json"
+
+CASE_TIMEOUT_SECONDS = 10
+
+
+class _CaseTimeout(Exception):
+    pass
+
+
+def _timeout_handler(signum, frame):
+    raise _CaseTimeout(f"case exceeded {CASE_TIMEOUT_SECONDS}s")
+
+
+# ---------------------------------------------------------------------------
+# Gate: refuse to run unless LTN's own suite actually passed something
+# ---------------------------------------------------------------------------
+
+def check_gate(force: bool) -> dict:
+    if force:
+        return {"gate": "skipped", "reason": "--force"}
+    if not GATE_FILE.exists():
+        sys.exit(f"REFUSING TO RUN: {GATE_FILE} missing. "
+                  f"Run `python run_library_tests.py --only ltn --auto-clone` first.")
+    data = json.loads(GATE_FILE.read_text())
+    status = data.get("status")
+    passed = data.get("junit", {}).get("counts", {}).get("passed", 0)
+    if status not in ("ok", "tests_failed") or passed == 0:
+        sys.exit(f"REFUSING TO RUN: baseline shows status={status!r}, passed={passed}. "
+                  f"Fuzzing only runs for libraries whose own tests passed.")
+    print(f"Gate OK: baseline passed={passed} — proceeding.")
+    return {"gate": "passed", "baseline_passed": passed, "baseline_status": status,
+            "test_root": data.get("test_root")}
+
+
+# ---------------------------------------------------------------------------
+# Discovery: find real call sites in tests/tests.py with literal numeric/bool
+# keyword arguments, resolved via the file's own `import ltn` / `from ltn
+# import ...` statements — same AST-resolution approach as the DeepStochLog
+# script, adapted for attribute-chain calls (`ltn.fuzzy_ops.AggregPMean`)
+# since LTN's test file mostly calls through the `ltn` package object rather
+# than importing each class by name.
+# ---------------------------------------------------------------------------
+
+@dataclass
+class CallSite:
+    qualname: str            # e.g. "ltn.fuzzy_ops.AggregPMean"
+    lineno: int
+    kwargs: dict              # literal kwargs found: {name: value}
+    has_call_method: bool = False
+
+
+def resolve_literal(node: ast.AST):
+    """Return a literal Python value for simple int/float/bool AST nodes, else None."""
+    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float, bool)):
+        return node.value
+    if isinstance(node, ast.UnaryOp) and isinstance(node.op, ast.USub):
+        inner = resolve_literal(node.operand)
+        return -inner if inner is not None else None
+    return None
+
+
+def attr_chain_name(node: ast.AST) -> str | None:
+    """Turn `ltn.fuzzy_ops.AggregPMean` (an Attribute/Name chain) into a dotted string."""
+    parts = []
+    while isinstance(node, ast.Attribute):
+        parts.append(node.attr)
+        node = node.value
+    if isinstance(node, ast.Name):
+        parts.append(node.id)
+        return ".".join(reversed(parts))
+    return None
+
+
+def discover_call_sites(test_file: pathlib.Path) -> list[CallSite]:
+    tree = ast.parse(test_file.read_text())
+    sites: list[CallSite] = []
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Call):
+            continue
+        qualname = attr_chain_name(node.func)
+        if qualname is None:
+            continue
+        # only interested in calls that carry at least one literal
+        # int/float/bool argument (positional or keyword) — that is the
+        # entire fuzzable surface.
+        lit_kwargs = {}
+        for kw in node.keywords:
+            if kw.arg is None:
+                continue
+            v = resolve_literal(kw.value)
+            if v is not None:
+                lit_kwargs[kw.arg] = v
+        if not lit_kwargs:
+            continue
+        sites.append(CallSite(qualname=qualname, lineno=node.lineno, kwargs=lit_kwargs))
+    return sites
+
+
+def resolve_callable(qualname: str):
+    """Resolve a dotted name like 'ltn.fuzzy_ops.AggregPMean' to the real object,
+    by importing progressively longer module prefixes (mirrors how Python
+    itself would resolve `import ltn; ltn.fuzzy_ops.AggregPMean`)."""
+    parts = qualname.split(".")
+    for split in range(len(parts), 0, -1):
+        mod_name = ".".join(parts[:split])
+        try:
+            obj = importlib.import_module(mod_name)
+        except ImportError:
+            continue
+        for attr in parts[split:]:
+            obj = getattr(obj, attr)
+        return obj
+    # fall back: maybe it's a plain name already imported at module scope
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Mutation
+# ---------------------------------------------------------------------------
+
+NAN, INF = float("nan"), float("inf")
+
+
+def mutate_numeric(name: str, v0):
+    """Mutations for an int/float literal. Returns [(op, value), ...]."""
+    if isinstance(v0, bool):
+        return [("flip", not v0)]
+    muts = [
+        ("zero", 0),
+        ("negate", -v0 if v0 != 0 else -1),
+        ("half", v0 / 2 if v0 else 0.5),        # violates p>=1 for p=2 -> 1.0, still valid; use 0.5 explicitly below
+        ("fractional_below_one", 0.5),
+        ("nan", NAN),
+        ("pos_inf", INF),
+        ("neg_inf", -INF),
+        ("huge", v0 * 1_000_000 if v0 else 1_000_000),
+    ]
+    # dedupe by op name, keep order
+    seen = set()
+    out = []
+    for op, val in muts:
+        if op in seen:
+            continue
+        seen.add(op)
+        out.append((op, val))
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Oracle: only defined for the `p` parameter of AggregPMean / AggregPMeanError
+# (the one literal argument in this codebase with a documented mathematical
+# contract). Everything else discovered is executed and recorded but labelled
+# N/A — never counted as a violation — to avoid inventing a contract that
+# isn't actually documented (this is what got two DeepStochLog findings
+# retracted last time; not repeating that here).
+# ---------------------------------------------------------------------------
+
+P_DOCUMENTED_CLASSES = {"ltn.fuzzy_ops.AggregPMean", "ltn.fuzzy_ops.AggregPMeanError"}
+
+
+def p_validity(p) -> str:
+    """DOC-VALID iff p is a finite number >= 1 (the AggregPMean*/docstring's
+    own stated requirement, `p >= 1`, read directly from ltn/fuzzy_ops.py)."""
+    try:
+        f = float(p)
+    except (TypeError, ValueError):
+        return "DOC-INVALID"
+    if not math.isfinite(f):
+        return "DOC-INVALID"
+    return "DOC-VALID" if f >= 1 else "DOC-INVALID"
+
+
+TEST_XS = None  # set lazily to a torch tensor in [0,1]
+
+
+def run_p_case(cls_qualname: str, param_name: str, mutant_p) -> dict:
+    """Construct the REAL AggregPMean/AggregPMeanError with the mutated p and
+    call it exactly as the library's own docstring example does:
+    op(xs, dim=0) on a tensor of fuzzy truth values in [0,1]."""
+    global TEST_XS
+    import torch
+    if TEST_XS is None:
+        TEST_XS = torch.tensor([0.2, 0.5, 0.9])
+
+    out = {"class": cls_qualname, "param": param_name, "p": mutant_p,
+           "validity": p_validity(mutant_p)}
+
+    old_handler = signal.signal(signal.SIGALRM, _timeout_handler)
+    signal.alarm(CASE_TIMEOUT_SECONDS)
+    try:
+        cls = resolve_callable(cls_qualname)
+        op = cls(**{param_name: mutant_p})
+        result = op(TEST_XS, dim=0)
+        val = float(result)
+        out["result"] = val
+        out["in_range"] = math.isfinite(val) and -1e-6 <= val <= 1 + 1e-6
+        accepted = True
+    except _CaseTimeout as e:
+        out["error"] = f"TIMEOUT: {e}"
+        accepted = None
+    except Exception as e:
+        out["error"] = f"{type(e).__name__}: {str(e)[:150]}"
+        accepted = False
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, old_handler)
+
+    if accepted is None:
+        out["verdict"] = "TIMEOUT"
+    elif out["validity"] == "DOC-VALID":
+        out["verdict"] = ("FALSE REJECT" if not accepted else
+                           "OUT OF RANGE" if not out["in_range"] else "ok")
+    else:  # DOC-INVALID
+        out["verdict"] = "REJECTED (correct)" if not accepted else "SILENTLY ACCEPTED"
+    out["ok"] = out["verdict"] in ("ok", "REJECTED (correct)")
+    return out
+
+
+def run_generic_case(site: CallSite, param_name: str, op_name: str, mutant_val) -> dict:
+    """For discovered call sites outside the documented p-contract (e.g. the
+    `stable` bool flags): construct the real object with the mutated literal
+    and record what happens, but never assign a verdict — there's no
+    documented contract to check it against."""
+    out = {"class": site.qualname, "param": param_name, "mutation": op_name,
+           "value": mutant_val, "validity": "N/A"}
+    old_handler = signal.signal(signal.SIGALRM, _timeout_handler)
+    signal.alarm(CASE_TIMEOUT_SECONDS)
+    try:
+        cls = resolve_callable(site.qualname)
+        kwargs = dict(site.kwargs)
+        kwargs[param_name] = mutant_val
+        obj = cls(**kwargs)
+        out["constructed"] = repr(obj)
+        out["verdict"] = "constructed ok (no documented contract to check)"
+        out["ok"] = True
+    except _CaseTimeout as e:
+        out["error"] = f"TIMEOUT: {e}"
+        out["verdict"] = "TIMEOUT"
+        out["ok"] = False
+    except Exception as e:
+        out["error"] = f"{type(e).__name__}: {str(e)[:150]}"
+        out["verdict"] = "rejected at construction"
+        out["ok"] = True  # rejecting an undocumented-contract mutation is not a finding either way
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, old_handler)
+    return out
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--list", action="store_true", help="print discovered call sites, run nothing")
+    ap.add_argument("--force", action="store_true", help="skip the gate check (debug only)")
+    args = ap.parse_args()
+
+    gate = check_gate(args.force)
+    test_root = pathlib.Path(gate.get("test_root") or "")
+    test_file = test_root / "tests.py" if test_root and (test_root / "tests.py").exists() else None
+    if test_file is None:
+        # fall back to whatever the gate file recorded, or the known layout
+        candidates = [test_root / "tests.py", pathlib.Path("/tmp/ltn/tests/tests.py")]
+        test_file = next((c for c in candidates if c.exists()), None)
+    if test_file is None:
+        sys.exit("Could not locate tests/tests.py from the gate file's test_root; "
+                 "pass its real path or rerun run_library_tests.py --only ltn --auto-clone.")
+
+    import inspect as _inspect
+    all_sites = discover_call_sites(test_file)
+    sites = [s for s in all_sites
+             if (r := resolve_callable(s.qualname)) is not None and _inspect.isclass(r)]
+
+    if args.list:
+        print(f"discovered {len(all_sites)} call site(s) with literal int/float/bool arguments "
+              f"in {test_file}; {len(sites)} resolve to a real class (the rest are plain "
+              f"helper functions with no construction contract, and are skipped):\n")
+        for s in sites:
+            tag = "P-DOCUMENTED (p>=1)" if s.qualname in P_DOCUMENTED_CLASSES else "undocumented contract"
+            print(f"  line {s.lineno:<5} {s.qualname:<35} kwargs={s.kwargs}  [{tag}]")
+        return 0
+
+    warnings.filterwarnings("ignore")
+    # make the checkout's own package importable (ltn is pip -e installed already)
+    t0 = time.time()
+
+    p_rows: list[dict] = []
+    generic_rows: list[dict] = []
+
+    for site in sites:
+        if site.qualname in P_DOCUMENTED_CLASSES and "p" in site.kwargs:
+            v0 = site.kwargs["p"]
+            for op_name, mutant in mutate_numeric("p", v0):
+                p_rows.append({**run_p_case(site.qualname, "p", mutant),
+                                "op": op_name, "seed_value": v0, "site_line": site.lineno})
+        else:
+            for pname, v0 in site.kwargs.items():
+                for op_name, mutant in mutate_numeric(pname, v0):
+                    generic_rows.append({**run_generic_case(site, pname, op_name, mutant),
+                                          "seed_value": v0, "site_line": site.lineno})
+
+    n_violations = sum(1 for r in p_rows if not r["ok"])
+
+    payload = {
+        "library": "ltn",
+        "generated": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "seconds": round(time.time() - t0, 2),
+        "gate": gate,
+        "test_file": str(test_file),
+        "method": (
+            "AST-discovered every Call in ltn's own passing test file with a literal "
+            "int/float/bool keyword argument, resolved the callee to the real class via "
+            "its own `import ltn` statement, mutated the literal, and invoked the REAL "
+            "class exactly as the library's own docstring/tests do (construct, then call "
+            "op(xs, dim=0) on a real torch tensor of fuzzy truth values)."
+        ),
+        "scope_note": (
+            "Only ltn.fuzzy_ops.AggregPMean / AggregPMeanError's `p` parameter has a "
+            "documented contract (p >= 1, stated verbatim in the class docstring) that "
+            "was found in this codebase. All other discovered literal arguments (the "
+            "`stable` bool flags on AndProd/OrProbSum/ImpliesReichenbach/ImpliesGoguen) "
+            "are recorded under generic_results with validity=N/A and are NEVER counted "
+            "as violations, because LTN's own docstrings document stable=False as a "
+            "supported alternate mode, not a contract to violate."
+        ),
+        "n_call_sites_discovered": len(sites),
+        "n_p_cases": len(p_rows),
+        "n_generic_cases": len(generic_rows),
+        "n_violations": n_violations,
+        "p_results": p_rows,
+        "generic_results": generic_rows,
+    }
+    RESULTS.mkdir(exist_ok=True)
+    out_path = RESULTS / "fuzz_results_ltn_auto.json"
+    out_path.write_text(json.dumps(payload, indent=1, default=str))
+
+    print(f"\n{len(p_rows)} p-contract cases — {n_violations} oracle violations "
+          f"({len(generic_rows)} generic cases recorded, no contract to violate)\n")
+    for r in p_rows:
+        mark = "!" if not r["ok"] else " "
+        print(f"{mark} p={r['p']!r:<10} ({r['op']:<20}) {r['verdict']:<20} "
+              f"{str(r.get('error') or r.get('result'))[:60]}")
+    print(f"\nwrote {out_path}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,54 @@
+{
+  "environment": {
+    "timestamp": "2026-09-21T00:14:04+0600",
+    "python_version": "3.12.2 | packaged by conda-forge | (main, Feb 16 2024, 20:54:21) [Clang 16.0.6 ]",
+    "python_executable": "/Users/promachowdhury/opt/anaconda3/envs/nesy/bin/python",
+    "platform": "macOS-14.2.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "arm",
+    "packages": {
+      "deepproblog": "unknown",
+      "ltn": "unknown",
+      "scallopy": "unknown",
+      "neurasp": null,
+      "deepstochlog": "unknown",
+      "deepsoftlog": null,
+      "pylon": null,
+      "SLASH": null,
+      "spl": null,
+      "pslpython": null,
+      "problog": "unknown",
+      "pysdd": "1.0.0",
+      "clingo": "5.8.2",
+      "torch": "2.14.0",
+      "torchvision": "0.29.0",
+      "pytest": "9.1.1",
+      "numpy": "2.5.3",
+      "pyswip": null
+    },
+    "cuda": {
+      "available": false,
+      "version": null,
+      "device_count": 0
+    },
+    "PYTHONHASHSEED": null,
+    "OMP_NUM_THREADS": null
+  },
+  "auto_clone": true,
+  "libraries": [
+    {
+      "library": "deepstochlog",
+      "status": "tests_failed",
+      "runner": "pytest",
+      "test_source": "site_packages",
+      "counts": {
+        "tests": 14,
+        "failures": 0,
+        "errors": 5,
+        "skipped": 0,
+        "passed": 9
+      },
+      "result_file": "results/deepstochlog_tests.json"
+    }
+  ]
+}

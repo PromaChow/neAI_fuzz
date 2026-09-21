@@ -1,0 +1,231 @@
+{
+  "library": "scallopy",
+  "import_name": "scallopy",
+  "notes": "tests/test.py \u2014 NON-standard filename (no underscore); needs Rust toolchain to build scallopy itself",
+  "documented_command": null,
+  "repo_url": "https://github.com/scallop-lang/scallop.git",
+  "runner": "pytest",
+  "test_root": "/Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/scallopy/etc/scallopy/tests",
+  "test_source": "source_checkout_override",
+  "command": "/Users/promachowdhury/opt/anaconda3/envs/nesy/bin/python -m pytest /Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/scallopy/etc/scallopy/tests -q --no-header -p no:cacheprovider -o python_files=*.py --junitxml=/var/folders/ym/q5m4l2l139lb0l3_v1tnr_k00000gn/T/tmp8x5nxeg8/report.xml",
+  "seconds": 4.11,
+  "returncode": 1,
+  "stdout_tail": [
+    "FAILED _src_checkouts/scallopy/etc/scallopy/tests/test.py::TestDigitForward::test_forward_with_output_mapping",
+    "FAILED _src_checkouts/scallopy/etc/scallopy/tests/test.py::TestDigitForward::test_forward_with_output_mapping_2",
+    "FAILED _src_checkouts/scallopy/etc/scallopy/tests/test.py::TestDigitForward::test_multi_result",
+    "FAILED _src_checkouts/scallopy/etc/scallopy/tests/test.py::TestDigitForward::test_multi_result_maybe_with_output_mapping",
+    "FAILED _src_checkouts/scallopy/etc/scallopy/tests/test.py::TestDigitForward::test_no_output_mapping",
+    "FAILED _src_checkouts/scallopy/etc/scallopy/tests/test.py::TestDigitForward::test_normal",
+    "FAILED _src_checkouts/scallopy/etc/scallopy/tests/test.py::TestDirectForward::test_forward",
+    "FAILED _src_checkouts/scallopy/etc/scallopy/tests/test.py::TestDirectForward::test_forward_with_probabilities",
+    "FAILED _src_checkouts/scallopy/etc/scallopy/tests/test.py::TestSparseDigitForward::test_backward_with_sparse",
+    "30 failed, 146 passed, 66 xfailed, 1 warning in 3.55s"
+  ],
+  "stderr_tail": [],
+  "warnings": [
+    "=============================== warnings summary ===============================",
+    "  /Users/promachowdhury/neurosym_fuzz/dpl_fuzz_study/_src_checkouts/scallopy/etc/scallopy/tests/debug.py:18: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.",
+    "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+    "30 failed, 146 passed, 66 xfailed, 1 warning in 3.55s"
+  ],
+  "exit_meaning": "tests_failed",
+  "junit": {
+    "counts": {
+      "tests": 242,
+      "failures": 30,
+      "errors": 0,
+      "skipped": 66,
+      "passed": 146
+    },
+    "failing_tests": [
+      {
+        "test": "tests.dbio.TestIO::test_load_csv",
+        "kind": "failure",
+        "message": "Exception: IO: Cannot open file `core/res/testing/csv/edge.csv`: No such file or directory (os error 2)"
+      },
+      {
+        "test": "tests.dbio.TestIO::test_load_csv_with_field",
+        "kind": "failure",
+        "message": "Exception: IO: Cannot open file `core/res/testing/csv/student.csv`: No such file or directory (os error 2)"
+      },
+      {
+        "test": "tests.dbio.TestIO::test_load_csv_with_key_and_field",
+        "kind": "failure",
+        "message": "Exception: IO: Cannot open file `core/res/testing/csv/student.csv`: No such file or directory (os error 2)"
+      },
+      {
+        "test": "tests.entity.TestEntity::test_entity_forward",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.entity.TestEntity::test_entity_forward_2",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.forward.TestForward::test_top_k_sample",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.forward.TestDigitForward::test_forward_with_output_mapping",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.forward.TestDigitForward::test_forward_with_output_mapping_2",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.forward.TestDigitForward::test_multi_result",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.forward.TestDigitForward::test_multi_result_maybe_with_output_mapping",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.forward.TestDigitForward::test_no_output_mapping",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.forward.TestDigitForward::test_normal",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.forward.TestDirectForward::test_forward",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.forward.TestDirectForward::test_forward_with_probabilities",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.sparse_forward.TestSparseDigitForward::test_backward_with_sparse",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.test.TestIO::test_load_csv",
+        "kind": "failure",
+        "message": "Exception: IO: Cannot open file `core/res/testing/csv/edge.csv`: No such file or directory (os error 2)"
+      },
+      {
+        "test": "tests.test.TestIO::test_load_csv_with_field",
+        "kind": "failure",
+        "message": "Exception: IO: Cannot open file `core/res/testing/csv/student.csv`: No such file or directory (os error 2)"
+      },
+      {
+        "test": "tests.test.TestIO::test_load_csv_with_key_and_field",
+        "kind": "failure",
+        "message": "Exception: IO: Cannot open file `core/res/testing/csv/student.csv`: No such file or directory (os error 2)"
+      },
+      {
+        "test": "tests.test.TestEntity::test_entity_forward",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.test.TestEntity::test_entity_forward_2",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.test.TestForward::test_top_k_sample",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.test.TestDigitForward::test_forward_with_output_mapping",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.test.TestDigitForward::test_forward_with_output_mapping_2",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.test.TestDigitForward::test_multi_result",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.test.TestDigitForward::test_multi_result_maybe_with_output_mapping",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.test.TestDigitForward::test_no_output_mapping",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.test.TestDigitForward::test_normal",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.test.TestDirectForward::test_forward",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.test.TestDirectForward::test_forward_with_probabilities",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      },
+      {
+        "test": "tests.test.TestSparseDigitForward::test_backward_with_sparse",
+        "kind": "failure",
+        "message": "pyo3_runtime.PanicException: Cannot clone pointer into Python heap without the thread being attached."
+      }
+    ],
+    "n_failing_recorded": 30
+  },
+  "status": "tests_failed",
+  "environment": {
+    "timestamp": "2026-09-20T20:11:49+0600",
+    "python_version": "3.12.2 | packaged by conda-forge | (main, Feb 16 2024, 20:54:21) [Clang 16.0.6 ]",
+    "python_executable": "/Users/promachowdhury/opt/anaconda3/envs/nesy/bin/python",
+    "platform": "macOS-14.2.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "arm",
+    "packages": {
+      "deepproblog": "unknown",
+      "ltn": "unknown",
+      "scallopy": "unknown",
+      "neurasp": null,
+      "deepstochlog": null,
+      "deepsoftlog": null,
+      "pylon": null,
+      "SLASH": null,
+      "spl": null,
+      "pslpython": null,
+      "problog": "unknown",
+      "pysdd": "1.0.0",
+      "clingo": "5.8.2",
+      "torch": "2.14.0",
+      "torchvision": "0.29.0",
+      "pytest": "9.1.1",
+      "numpy": "2.5.3",
+      "pyswip": "unknown"
+    },
+    "cuda": {
+      "available": false,
+      "version": null,
+      "device_count": 0
+    },
+    "PYTHONHASHSEED": null,
+    "OMP_NUM_THREADS": null
+  }
+}
